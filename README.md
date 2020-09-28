@@ -9,15 +9,15 @@ Run `npm start` for a dev server (shortcut for `ng serve --open`) and wait for t
 ## Requirements
 
 ### What you must know
-1. [HTML] (https://developer.mozilla.org/en-US/docs/Web/HTML)
-2. [CSS] (https://developer.mozilla.org/en-US/docs/Web/CSS)
-3. [JavaScript] (https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-4. [Angular] (https://angular.io) **or** [Express] (https://expressjs.com)
+1. [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+2. [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+3. [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+4. [Angular](https://angular.io) **or** [Express](https://expressjs.com)
 
 ### If you have this skills, it is a plus
-1. [AngularMaterial] (https://material.angular.io)
-2. [Bootstrap] (https://getbootstrap.com)
-3. [FontAwesome] (https://fontawesome.com)
+1. [AngularMaterial](https://material.angular.io)
+2. [Bootstrap](https://getbootstrap.com)
+3. [FontAwesome](https://fontawesome.com)
 
 ## Things to use for consistency
 
