@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CtPatternRecognitionComponent } from './ct-pattern-recognition.component';
+import { CTPatternRecognitionComponent } from './ct-pattern-recognition.component';
 
-describe('CtPatternRecognitionComponent', () => {
-  let component: CtPatternRecognitionComponent;
-  let fixture: ComponentFixture<CtPatternRecognitionComponent>;
+describe('CTPatternRecognitionComponent', () => {
+  let component: CTPatternRecognitionComponent;
+  let fixture: ComponentFixture<CTPatternRecognitionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CtPatternRecognitionComponent ]
+      declarations: [ CTPatternRecognitionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CtPatternRecognitionComponent);
+    fixture = TestBed.createComponent(CTPatternRecognitionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
