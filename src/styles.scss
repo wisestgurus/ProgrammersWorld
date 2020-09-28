@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;  }
+
+.active{
+    border-style: solid none;
+    border-width: 1px 0;
+    border-color: teal;
+}
+
+.heading{
+    text-transform: uppercase;
+    text-align: center;
+}

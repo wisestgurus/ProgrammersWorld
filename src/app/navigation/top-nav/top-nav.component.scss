@@ -1,0 +1,23 @@
+.content-to-the-right{
+    flex: 1 1 auto;
+}
+
+a{
+    text-decoration: none;
+}
+
+.name-of-website{
+    font-variant: small-caps;
+    font-size: large;
+    color: white;
+}
+
+button{
+    outline: none;
+}  
+
+.active{ 
+    border-style: solid none;
+    border-width: 2px 0;
+    border-color: teal;
+}

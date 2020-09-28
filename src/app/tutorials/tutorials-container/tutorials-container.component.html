@@ -1,0 +1,52 @@
+<div>
+    <h3 class="heading">{{tutorialItems.header}}</h3>
+
+    <div wgAlert='success' class="font-weight-bolder" *ngIf='tutorialItems?.briefIntro'>
+        <p *ngFor='let briefIntro of tutorialItems.briefIntro'>{{briefIntro}}</p>
+    </div>
+
+    <div wgAlert='warning' class="font-weight-bolder">
+        <h5 class="heading">Prerequisite(s)</h5>
+        <p class="font-weight-bolder">Before you proceed, you should learn;</p>
+        <ul>
+            <li *ngFor='let prerequisites of tutorialItems.prerequisites'>
+                <a *ngIf='prerequisites?.path' [routerLink]='[prerequisites.path]'>{{prerequisites.name}}</a>
+                <span *ngIf='!(prerequisites?.path)'>{{prerequisites.name}}</span>
+            </li>
+        </ul>
+    </div>
+
+    <div wgAlert='warning' class="font-weight-bolder" *ngIf='tutorialItems?.objectives'>
+        <h5 class="heading">Objectives</h5>
+        <p>At the end of this tutorial, you should be able to;</p>
+        <ol>
+            <li *ngFor='let objective of tutorialItems.objectives'>{{ objective }}</li>
+        </ol>
+    </div>
+
+    <ng-content></ng-content>
+
+    <div wgAlert='primary' class="font-weight-bolder" *ngIf='tutorialItems?.terminologies'>
+        <h5 class="heading">Terminologies</h5>
+        <ol>
+            <li *ngFor='let terminologies of tutorialItems.terminologies'>
+                <span class="font-weight-bolder">{{terminologies.name}}</span>: <span>{{terminologies.meaning}}</span>
+            </li>
+        </ol>
+
+    </div>
+
+    <div wgAlert='warning' class="font-weight-bolder" *ngIf='tutorialItems?.objectives'>
+        <h5 class="heading">Objectives</h5>
+        <p>Before you proceed, you should be able to;</p>
+        <ol>
+            <li *ngFor='let objective of tutorialItems.objectives'>{{ objective }}</li>
+        </ol>
+    </div>
+
+    <button class="btn btn-success float-left" *ngIf='tutorialItems.buttons?.previous'
+        [routerLink]='[tutorialItems.buttons.previous.path]'>&#60;&#60;{{tutorialItems.buttons.previous.name}}</button>
+
+    <button class="btn btn-success float-right" *ngIf='tutorialItems.buttons?.next'
+        [routerLink]='[tutorialItems.buttons.next.path]'>{{tutorialItems.buttons.next.name}}&#62;&#62;</button>
+</div>

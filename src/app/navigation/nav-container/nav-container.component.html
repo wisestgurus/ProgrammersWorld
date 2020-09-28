@@ -1,0 +1,22 @@
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav #sidenav class="sidenav" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+
+    <wg-side-nav [navItems]='navItems' [sidenav]='sidenav'>
+      <ng-content select=[nav-links]></ng-content>
+    </wg-side-nav>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <wg-top-nav [sidenav]='sidenav'></wg-top-nav>
+
+    <div class="container">
+      <ng-content select=[main-content]></ng-content>
+    </div>
+
+    <wg-bottom-nav></wg-bottom-nav>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
