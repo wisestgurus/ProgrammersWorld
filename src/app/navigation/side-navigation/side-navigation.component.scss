@@ -1,0 +1,23 @@
+@import "../navigation";
+@include navigation-link;
+
+button {
+    outline: none;
+}
+
+.navigation-content {
+    text-align: left;
+    padding: 14px 0 14px 22px;
+    font-size: 15px;
+}
+
+.expansion-panel {
+    background-color: inherit;
+
+    .expansion-panel-header {
+        &:hover {
+            background: $background-color-on-hover;
+            color: inherit;
+        }
+    }
+}

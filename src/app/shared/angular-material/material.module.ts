@@ -12,9 +12,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   exports: [
+    MatTabsModule,
     MatGridListModule,
     MatPaginatorModule,
     MatCardModule,
@@ -29,6 +31,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatToolbarModule,
     MatIconModule,
     MatListModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MaterialModule { }

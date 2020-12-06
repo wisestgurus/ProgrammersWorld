@@ -1,0 +1,8 @@
+<div class="my-1 icons-container d-flex flex-wrap justify-content-center bg-light">
+
+    <a *ngFor='let socialMedia of socialMedias' [href]="socialMedia.link" [class]="socialMedia.class" role="link"
+        [attr.aria-label]="socialMedia.ariaLabel">
+        <i [class]="socialMedia.icon"></i>
+    </a>
+
+</div>

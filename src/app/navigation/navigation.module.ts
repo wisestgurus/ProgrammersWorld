@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared';
-
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { BottomNavComponent, } from './bottom-nav/bottom-nav.component';
+import { TopNavigationComponent } from './top-navigation/top-navigation.component';
 import { SearchComponent } from './search/search.component';
-import { NavContainerComponent } from './nav-container/nav-container.component';
-import { TopNavComponent } from './top-nav/top-nav.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
+import { SideNavigationComponent } from './side-navigation/side-navigation.component';
+import { NavigationContainerComponent } from './navigation-container/navigation-container.component';
+import { BottomNavigationComponent } from './bottom-navigation/bottom-navigation.component';
 
 @NgModule({
   imports: [
@@ -14,25 +12,19 @@ import { SideNavComponent } from './side-nav/side-nav.component';
   ],
 
   exports: [
-    NavContainerComponent,
-    PageNotFoundComponent,
-    TopNavComponent,
-    SearchComponent,
-    BottomNavComponent,
-    SideNavComponent,
+    NavigationContainerComponent
   ],
 
   declarations: [
-    PageNotFoundComponent,
-    NavContainerComponent,
-    TopNavComponent,
+    TopNavigationComponent,
     SearchComponent,
-    BottomNavComponent,
-    SideNavComponent
+    SideNavigationComponent,
+    NavigationContainerComponent,
+    BottomNavigationComponent
   ],
 
   providers: [
   ]
-
 })
+
 export class NavigationModule { }

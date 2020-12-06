@@ -4,29 +4,46 @@ export const tutorialsRoutePath =
 {
     CT:
     {
-        main: 'computational_thinking',
+        main: 'computational-thinking',
         introduction: 'introduction',
+        thinkingComputationally: 'thinking-computationally',
         decomposition: 'decomposition',
-        patternRecognition: 'pattern_recognition',
+        patternRecognition: 'pattern-recognition',
         abstraction: 'abstraction',
         algorithm: 'algorithm',
-        quiz: 'quiz'
+        quiz: 'quiz',
     },
 
-    HTML: {
-        main: 'html',
-        introduction: 'introduction',
-    },
+    webDevelopment: {
+        main: 'web-development',
 
-    CSS: {
-        main: 'css',
-        introduction: '',
+        gettingStartedWithTheWeb: {
+            main: 'getting-started-with-the-web',
 
-    },
+            introductionToTheWeb: 'introduction-to-the-web',
+            historyOfTheWeb: 'history-of-the-web',
+            howTcpIpWorks: 'how-tcp-ip-works',
+            howTheWebWorks: 'how-the-web-works',
 
-    JavaScript: {
-        main: '',
-        introduction: ''
+            whatIsWebDevelopment: 'what-is-web-development',
+            fieldsInWebDevelopment: 'fields-in-web-development',
+            importanceAndJobAvailability: 'importance-and-job-availability',
+        },
+
+        HTML: {
+            main: 'html',
+            introductionToHTML: 'introduction-to-html',
+            basicSyntaxExplained: 'basic-syntax-explained'
+        },
+
+        CSS: {
+            main: 'css',
+            introduction: 'introduction',
+        },
+
+        JavaScript: {
+            main: '',
+            introduction: ''
+        },
     }
-
 }

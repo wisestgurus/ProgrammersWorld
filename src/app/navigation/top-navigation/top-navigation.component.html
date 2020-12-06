@@ -1,0 +1,55 @@
+<button mat-icon-button disableRipple (click)='toggleSideNavigation()'><i class="fas fa-bars"></i></button>
+
+<!-- Name of website / Link to the homepage -->
+<a routerLinkActive='active' class="heading" [routerLinkActiveOptions]='{exact:true}'
+    *ngIf='!(isHandset$ | async) || (isTablet$ | async)' role="link" [attr.aria-label]='nameOfWebsite.name'
+    [routerLink]='[nameOfWebsite.path]'>
+    {{nameOfWebsite.name}}
+</a>
+
+<span class="flex-fill"></span>
+<!-- Other links -->
+<div *ngIf='!(isHandset$ | async)' class="d-inline-flex">
+
+    <div *ngFor='let mainNavigationItem of mainNavigationItems.items'>
+
+        <div *ngIf='mainNavigationItem.contents' routerLinkActive='active'>
+
+            <button class="dropdown-button dropdown-toggle" data-toggle="dropdown" [id]='mainNavigationItem.heading'
+                aria-haspopup="true" aria-expanded="false"
+                [attr.aria-label]='mainNavigationItem.heading'>{{mainNavigationItem.heading}}
+            </button>
+
+            <div class="dropdown-menu w-100" [attr.aria-labelledby]='mainNavigationItem.heading'>
+                <h5 class="heading mb-4" [attr.aria-label]='mainNavigationItem.heading'>{{mainNavigationItem.heading}}
+                </h5>
+
+                <div class='dropdown-item-container'>
+                    <div *ngFor='let mainNavigationContent of mainNavigationItem.contents'>
+                        <h6 class="heading text-left">{{mainNavigationContent.heading}}</h6>
+                        <a *ngFor='let mainNavigationLink of mainNavigationContent.links' routerLinkActive='active'
+                            [attr.aria-label]='mainNavigationLink.name' [routerLink]='mainNavigationLink.path'
+                            href="#">{{mainNavigationLink.name}} <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <a routerLinkActive='active' *ngIf='!(mainNavigationItem.contents)'
+            [attr.aria-label]='mainNavigationItem.heading' [routerLink]='mainNavigationItem.path'
+            [id]='mainNavigationItem.heading'>{{mainNavigationItem.heading}} <i
+                class="fas fa-external-link-alt"></i></a>
+    </div>
+</div>
+
+<!-- Name of website / Link to the homepage -->
+<a routerLinkActive='active' [routerLinkActiveOptions]='{exact:true}'
+    *ngIf='!(!(isHandset$ | async) || (isTablet$ | async))' class="heading" role="link"
+    [attr.aria-label]='nameOfWebsite.name' [routerLink]='[nameOfWebsite.path]'>
+    {{nameOfWebsite.name}}
+</a>
+
+<span class="flex-fill"></span>
+
+<wg-timer></wg-timer>

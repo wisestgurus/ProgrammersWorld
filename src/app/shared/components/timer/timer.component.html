@@ -1,0 +1,26 @@
+<button *ngIf='!(timeRemaining) && (timeRemaining !== 0)' class="bg-dark" mat-mini-fab (click)='openTimerInstruction()'>
+    <i class="fas fa-stopwatch"></i>
+</button>
+
+<ng-template #timerInstructionRef>
+    <button mat-button class='btn-primary' (click)='startWorkTime(0.6)'>
+        Start
+    </button>
+</ng-template>
+
+<button *ngIf='(timeRemaining) || (timeRemaining === 0)' mat-mini-fab class="bg-success" (click)='openTimerSettings()'>
+    {{minutesRemaining}}: {{secondsRemaining}}
+</button>
+<ng-template #timerSettingsRef>
+    <button *ngIf='isPlaying === false' class="bg-dark" mat-mini-fab (click)='playTime()'>
+        <i class="fas fa-play"> </i>
+    </button>
+
+    <button *ngIf='isPlaying === true' mat-mini-fab class="bg-dark" (click)='pauseTime()'>
+        <i class="fas fa-pause-circle"></i>
+    </button>
+
+    <button mat-mini-fab class="bg-dark" (click)='stopTime()'>
+        <i class="fas fa-stop-circle"></i>
+    </button>
+</ng-template>

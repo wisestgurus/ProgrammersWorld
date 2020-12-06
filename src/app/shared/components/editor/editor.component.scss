@@ -1,0 +1,15 @@
+$border: 6px dotted yellow;
+.content-to-the-right{
+    flex: 1 1 auto;
+}
+
+button{
+    outline: none;
+}
+
+.editor-heading{
+    font-size: 16.40px;
+    border-top: $border;
+    border-bottom: $border;
+    font-variant: small-caps;
+}

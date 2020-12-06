@@ -1,0 +1,57 @@
+$font-size: 1.11rem;
+
+$background-color: rgb(0, 204, 204);
+
+$background-color-on-hover: rgba(
+    $color: blue,
+    $alpha: 0.1,
+);
+
+$background-color-on-click: rgba(
+    $color: blue,
+    $alpha: 0,
+);
+
+%border {
+    border: {
+        top: 0.125rem solid blue;
+        bottom: 0.125rem solid blue;
+        radius: 0.625rem;
+    }
+}
+
+// Styling for the all the links in the navigation (both top/side navigation)
+@mixin navigation-link {
+    a,
+    .dropdown-button {
+        color: black;
+        display: block;
+        background-color: inherit;
+        border: none;
+        padding: 0.375rem 0.875rem;
+        text-transform: capitalize;
+        font-variant: small-caps;
+        text-decoration: none;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        font-size: $font-size;
+    }
+
+    a:hover:not(.active),
+    button:hover {
+        background: $background-color-on-hover;
+        color: initial;
+    }
+
+    a:active:not(.active),
+    button:active {
+        background: $background-color-on-click;
+        outline: none;
+        color: initial;
+    }
+
+    .active {
+        @extend %border;
+        background-color: none;
+        color: initial;
+    }
+}

@@ -1,0 +1,41 @@
+<wg-navigation-container>
+
+
+    <div class="card" [style.margin-bottom]="i !== dashboardItems.length - 1 ? '150px': ''"
+        *ngFor='let dashboardItem of dashboardItems; let i = index;'>
+        <div class="card-header">
+            <h2 class="heading">{{dashboardItem.heading}}</h2>
+        </div>
+
+        <div class="card-body">
+            <p>{{dashboardItem.briefDescription}}</p>
+            <hr class="bg-dark">
+
+            <mat-tab-group *ngIf='dashboardItem.children'>
+
+                <mat-tab *ngFor='let children of dashboardItem.children'>
+                    <ng-template mat-tab-label>
+                        <h6 class="heading">{{children.heading}}</h6>
+                    </ng-template>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="text-danger" style="font-variant: small-caps;">category - {{children.category}}
+                            </h6>
+                        </div>
+
+                        <div class="card-body">
+                            <p class="card-text">{{children.briefDescription}}</p>
+
+                            <button class="m-auto d-block">get started</button>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+
+            <mat-paginator></mat-paginator>
+        </div>
+    </div>
+
+
+</wg-navigation-container>

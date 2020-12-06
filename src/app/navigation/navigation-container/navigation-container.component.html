@@ -1,0 +1,19 @@
+<wg-top-navigation (toggleButtonClicked)='toggleSideNavigation()' id="top-navigation"
+    class="navbar px-1 flex-nowrap sticky-top" role="navigation" aria-label="Top navigation">
+</wg-top-navigation>
+
+
+
+<wg-side-navigation [otherNavigationItems]='otherNavigationItems' id="side-navigation"
+    [ngStyle]='sideNavigationOpened ? {width:"250px"} : {width:"0"}' aria-label="Side navigation"></wg-side-navigation>
+
+<div [ngStyle]='mode === "side" ? {marginLeft:"250px"} : {marginLeft:"0"}' id="other-navigations">
+    
+    <wg-search id="search" class='bg-dark'></wg-search>
+    
+    <main id="main-content">
+        <ng-content></ng-content>
+    </main>
+
+    <wg-bottom-navigation id="bottom-navigation" class="d-flex flex-wrap container"></wg-bottom-navigation>
+</div>

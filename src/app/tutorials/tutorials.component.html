@@ -1,0 +1,98 @@
+<div class="clearfix">
+    <button class="float-left button-navigator btn btn-success" *ngIf='tutorialItems.buttons.prev'>
+        <i class="fas fa-arrow-left"></i><i class="fas fa-arrow-left"></i>{{tutorialItems.buttons.prev.name}}
+    </button>
+
+    <button [routerLink]='tutorialItems.buttons.next.path' class="float-right button-navigator btn btn-success"
+        *ngIf='tutorialItems.buttons.next'>
+        {{tutorialItems.buttons.next.name}} <i class="fas fa-arrow-right"></i><i class="fas fa-arrow-right"></i>
+    </button>
+</div>
+
+<h3 class="heading">{{tutorialItems.heading}}</h3>
+<div *ngIf='tutorialItems.briefIntro' wgAlert='success'>
+    <h4 class="heading">brief intro</h4>
+
+    <p class="font-weight-bold" *ngFor='let briefIntro of tutorialItems.briefIntro'>{{briefIntro}}</p>
+</div>
+
+<div wgAlert='warning'>
+    <h4 class="heading">Prerequisites</h4>
+    <p class="font-weight-bold">Before you begin with this tutorial, you should learn;</p>
+    <ul>
+        <li class="font-weight-bold" *ngFor='let prerequisite of tutorialItems?.prerequisites'>
+            <a class="links font-weight-bold" [routerLink]='prerequisite.path'>{{prerequisite.name}}
+                <i class="ml-1 fas fa-external-link-alt"></i></a>
+
+            <span *ngIf='prerequisite.isOptional'> -- Optional.</span>
+            <span *ngIf='!(prerequisite.isOptional)'> -- Required.</span>
+
+        </li>
+
+        <li class="font-weight-bold" *ngIf='!(tutorialItems.prerequisites)'>
+            Nothing.
+        </li>
+    </ul>
+</div>
+
+<div wgAlert='warning'>
+    <h4 class="heading">Objectives</h4>
+    <p class="font-weight-bolder">Before the end of this tutorial, you would learn:</p>
+
+    <ul>
+        <li class="font-weight-bold" *ngFor='let objective of tutorialItems.objectives'>
+            {{objective}}.
+        </li>
+    </ul>
+</div>
+
+<div *ngIf='tutorialItems?.glossaries' wgAlert='secondary'>
+    <h4 class="heading">glossaries</h4>
+
+    <div *ngFor='let glossary of tutorialItems.glossaries; let i = index;'>
+        <p class="heading text-left"><span> ({{i + 1}}). </span>{{glossary.heading}}</p>
+
+        <ul>
+            <span class="heading text-left">Definition(s)</span>
+
+            <li *ngFor='let definition of glossary.definitions'>
+                {{definition}}.
+            </li>
+        </ul>
+
+        <ul>
+            <span class="heading text-left">Example(s)</span>
+
+            <li *ngFor='let example of glossary.examples; let j = index;'>{{example}}, <span
+                    *ngIf='j === glossary.examples.length - 1'>etc...</span>
+            </li>
+        </ul>
+
+        <hr *ngIf='!(i === tutorialItems.glossaries.length - 1)' class="bg-dark" />
+    </div>
+</div>
+
+<ng-content></ng-content>
+
+<div wgAlert='warning'>
+    <h4 class="heading">Objectives <i class="fas fa-check"></i><i class="fas fa-check"></i></h4>
+    <p class="font-weight-bolder">Before you proceed, ensure that you have learnt;</p>
+
+    <ul>
+        <li class="font-weight-bold" *ngFor='let objective of tutorialItems.objectives'>
+            {{objective}}.
+        </li>
+    </ul>
+</div>
+
+
+<div class="clearfix">
+    <button class="float-left button-navigator btn btn-success" *ngIf='tutorialItems.buttons.prev'>
+        <i class="fas fa-arrow-left"></i><i class="fas fa-arrow-left"></i>{{tutorialItems.buttons.prev.name}}
+    </button>
+
+    <button [routerLink]='tutorialItems.buttons.next.path' class="float-right button-navigator btn btn-success"
+        *ngIf='tutorialItems.buttons.next'>
+        {{tutorialItems.buttons.next.name}} <i class="fas fa-arrow-right"></i><i class="fas fa-arrow-right"></i>
+    </button>
+</div>

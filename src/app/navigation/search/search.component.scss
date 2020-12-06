@@ -1,0 +1,8 @@
+@import "../navigation";
+
+form input {
+    width: 90%;
+    transition: border-radius 0.1s ease-in-out;
+    border-radius: 200px;
+    border: 5px solid $background-color;
+}

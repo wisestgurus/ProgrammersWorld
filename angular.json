@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ProgrammersWorld",
+            "outputPath": "dist/ProgrammersWorld/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,22 +25,26 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/ace-builds/src-noconflict/",
+                "output": "/"
+              }
             ],
             "styles": [
-              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.css",
-              "node_modules/@fortawesome/fontawesome-free/css/all.css",
-              "node_modules/codemirror/lib/codemirror.css",
-              "node_modules/codemirror/theme/abcdef.css"
+              "node_modules/@fortawesome/fontawesome-free/css/all.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
+              "node_modules/popper.js/dist/umd/popper.js",
               "node_modules/bootstrap/dist/js/bootstrap.js",
               "node_modules/@fortawesome/fontawesome-free/js/all.js",
-              "node_modules/codemirror/lib/codemirror.js",
-              "node_modules/codemirror/mode/javascript/javascript.js",
+              "node_modules/ace-builds/src-noconflict/ace.js",
+              "node_modules/ace-builds/src-noconflict/mode-javascript.js"
               
             ]
           },
@@ -115,7 +119,8 @@
             "tsConfig": [
               "tsconfig.app.json",
               "tsconfig.spec.json",
-              "e2e/tsconfig.json"
+              "e2e/tsconfig.json",
+              "tsconfig.server.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -132,6 +137,53 @@
             "production": {
               "devServerTarget": "ProgrammersWorld:serve:production"
             }
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/ProgrammersWorld/server",
+            "main": "src/server/server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "ProgrammersWorld:build",
+            "serverTarget": "ProgrammersWorld:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ProgrammersWorld:build:production",
+              "serverTarget": "ProgrammersWorld:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "ProgrammersWorld:build:production",
+            "serverTarget": "ProgrammersWorld:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
           }
         }
       }

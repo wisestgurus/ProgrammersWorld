@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
-import { TutorialsContainerComponent } from './tutorials-container/tutorials-container.component';
-import { SharedModule } from '../shared/shared';
+import { CommonModule } from '@angular/common';
 import { NavigationModule } from '../navigation/navigation.module';
+import { SharedModule } from '../shared/shared';
+import { TutorialsComponent } from './tutorials.component';
 
 
 @NgModule({
-  declarations: [TutorialsContainerComponent],
+  declarations: [TutorialsComponent],
+  imports: [
+    CommonModule,
+    NavigationModule,
+    SharedModule
+  ],
 
   exports: [
     NavigationModule,
     SharedModule,
-    TutorialsContainerComponent,
-  ],
-
-  imports: [
-    NavigationModule,
-    SharedModule,
+    TutorialsComponent
   ]
 })
 export class TutorialsModule { }

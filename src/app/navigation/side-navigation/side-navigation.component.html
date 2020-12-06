@@ -1,0 +1,66 @@
+<img src="../../../assets/Logo.jpg" class="img-fluid d-block m-auto rounded-circle" width="160px" />
+
+<wg-social-media></wg-social-media>
+
+<mat-accordion>
+    <div class="mt-2" *ngIf='(isHandset$ | async) && mainNavigationItems'>
+        <h5 class="heading" [attr.aria-label]='mainNavigationItems.heading'><u>{{mainNavigationItems.heading}}</u></h5>
+        <div *ngFor='let mainNavigationItem of mainNavigationItems.items'>
+
+            <mat-expansion-panel routerLinkActive='active' *ngIf='mainNavigationItem.contents'
+                class="expansion-panel my-2 mat-elevation-z0">
+
+                <mat-expansion-panel-header class="expansion-panel-header heading text-left"
+                    [attr.aria-label]='mainNavigationItem.heading'>{{mainNavigationItem.heading}}
+                </mat-expansion-panel-header>
+
+                <div class="my-4" *ngFor='let mainNavigationContent of mainNavigationItem.contents'>
+                    <h6 class="heading" [attr.aria-label]='mainNavigationContent.heading'>
+                        {{mainNavigationContent.heading}}</h6>
+
+                    <a *ngFor='let mainNavigationLink of mainNavigationContent.links' routerLinkActive='active'
+                        [attr.aria-label]='mainNavigationLink.name'
+                        [routerLink]='mainNavigationLink.path'>{{mainNavigationLink.name}} <i
+                            class="ml-1 fas fa-external-link-alt"></i></a>
+                </div>
+
+            </mat-expansion-panel>
+
+            <a *ngIf='!(mainNavigationItem.contents)' [attr.aria-label]='mainNavigationItems.heading'
+                class="heading navigation-content" routerLinkActive='active'
+                [routerLink]='mainNavigationItem.path'>{{mainNavigationItem.heading}} <i
+                    class="ml-1 fas fa-external-link-alt"></i></a>
+        </div>
+        <hr class="bg-dark" *ngIf='otherNavigationItems' />
+    </div>
+
+    <div class="mt-4" *ngIf='otherNavigationItems'>
+        <h5 class="heading" [attr.aria-label]='otherNavigationItems.heading'><u>{{otherNavigationItems.heading}}</u>
+        </h5>
+        <div *ngFor='let otherNavigationItem of otherNavigationItems.items'>
+
+            <mat-expansion-panel routerLinkActive='active' *ngIf='otherNavigationItem.contents'
+                class="expansion-panel my-4 mat-elevation-z0">
+
+                <mat-expansion-panel-header class="expansion-panel-header heading text-left"
+                    [attr.aria-label]='otherNavigationItem.heading'>{{otherNavigationItem.heading}}
+                </mat-expansion-panel-header>
+
+                <div class="my-4" *ngFor='let otherNavigationContent of otherNavigationItem.contents'>
+                    <h6 class="heading" [attr.aria-label]='otherNavigationContent.heading'>
+                        {{otherNavigationContent?.heading}}</h6>
+
+                    <a *ngFor='let otherNavigationLink of otherNavigationContent.links' routerLinkActive='active'
+                        [attr.aria-label]='otherNavigationLink.name'
+                        [routerLink]='otherNavigationLink.path'>{{otherNavigationLink.name}} <i
+                            class="ml-1 fas fa-external-link-alt"></i></a>
+                </div>
+            </mat-expansion-panel>
+
+            <a *ngIf='!(otherNavigationItem.contents)' [attr.aria-label]='otherNavigationItem.heading'
+                class="heading navigation-content" routerLinkActive='active'
+                [routerLink]='otherNavigationItem.path'>{{otherNavigationItem.heading}}</a>
+        </div>
+    </div>
+
+</mat-accordion>
