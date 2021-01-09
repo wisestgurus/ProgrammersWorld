@@ -3,11 +3,9 @@ import 'zone.js/dist/zone-node';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
 import { join } from 'path';
-import { WGRootServerModule } from '../main.server';
+import { PWRootServerModule } from '../main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
-import { dashboardRoutes } from './dashboard/dashboard-routes';
-import { computationalThinkingRoutes } from './computational-thinking/computational-thinking-routes';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -17,15 +15,15 @@ export function app(): express.Express {
 
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
   server.engine('html', ngExpressEngine({
-    bootstrap: WGRootServerModule
+    bootstrap: PWRootServerModule
   }));
 
   server.set('view engine', 'html');
   server.set('views', distFolder);
 
   // Example Express Rest API endpoints
-  server.use('/api/dashboard', dashboardRoutes());
-  server.use('/api/tutorials', computationalThinkingRoutes());
+  // server.use('/api/homepage');
+  // server.use('/api/tutorials');
 
   // Serve static files from /browser
   server.get('*.*', express.static(distFolder, {

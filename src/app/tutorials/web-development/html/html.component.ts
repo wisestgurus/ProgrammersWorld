@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { navigationItemsInterface, HTMLConfig } from 'src/app/shared/shared';
+import { Meta, Title } from '@angular/platform-browser';
+import { navigationItemsInterface, HTMLConfig, MetaAndTitleService } from 'src/app/shared/shared';
 
 @Component({
-  selector: 'wg-html',
+  selector: 'pw-html',
   templateUrl: './html.component.html',
   styleUrls: ['./html.component.scss']
 })
 export class HTMLComponent implements OnInit {
 
-  constructor() { }
+  constructor(private metaAndTitleService: MetaAndTitleService) { }
   otherNavigationItems: navigationItemsInterface = {
     heading: 'HTML', items: [
+      HTMLConfig.buttonsConfig.introduction,
+
       {
-        heading: 'HTML', contents: [
+        expansionHeader: 'beginners guide', expansionContents: [
           {
             links: [
-              HTMLConfig.buttonsConfig.introductionToHTML,
               HTMLConfig.buttonsConfig.basicSyntaxExplained
             ]
           }
@@ -24,6 +26,12 @@ export class HTMLComponent implements OnInit {
     ]
   }
   ngOnInit(): void {
+    this.metaAndTitleService.setMetaTag({
+      name: 'description', content: [
+        'HTML stands for HyperText Markup Language',
+        'It is the language used by the web to structure and display webpages',
+        'HTML is fun and easy to learn - You will enjoy it'
+      ].join('. '),
+    })
   }
-
 }

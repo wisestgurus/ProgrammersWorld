@@ -1,26 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { tutorialItemsInterface, HTMLConfig, GettingStartedWithTheWebConfig } from 'src/app/shared/shared';
+
+import {
+  tutorialItemsInterface, HTMLConfig,
+  GettingStartedWithTheWebConfig, MetaAndTitleService
+} from 'src/app/shared/shared';
 
 @Component({
-  selector: 'wg-introduction-to-html',
+  selector: 'pw-introduction-to-html',
   templateUrl: './introduction-to-html.component.html',
   styleUrls: ['./introduction-to-html.component.scss']
 })
 export class IntroductionToHTMLComponent implements OnInit {
 
-  constructor(private title: Title) { }
+  constructor(private metaAndTitleService: MetaAndTitleService) { }
+
+  a = '<html><body><h1>Abba</h1></body></html>'
+
 
   tutorialItems: tutorialItemsInterface = {
-    heading: 'introduction to html',
+    heading: 'Introduction to HTML',
 
-    briefIntro: ['s', 'a'],
+    briefIntro: [
+      'HTML stands for HyperText Markup Language',
+      'It is the language used by the web to structure and display webpages',
+    ],
 
     prerequisites: [
-      {
-        name: 'computational thinking', path: 'wefe4r', isOptional: true
-      },
-
       {
         ...GettingStartedWithTheWebConfig.buttonsConfig.main,
       },
@@ -41,29 +46,42 @@ export class IntroductionToHTMLComponent implements OnInit {
           'hypetex is ____'
         ], examples: [
           'HTML tags',
-          'HTML attributes',
-          'HTML elements',
         ]
       },
 
       {
-        heading: 'A Markup language', definitions: [
+        heading: 'Markup language', definitions: [
           'A markup language is _____'
         ], examples: [
           'HTML',
           'XML',
         ]
       }
+    ],
 
+    summaries: [
+      'HTML is the document used by the web to structure and display static contents.',
+      'A HTML tag is a markup syntax surrounded by angle brackets.',
+      'A HTML element is a block of code consisting of tag(s) with either an element content or no element content.',
+      'A HTML attribute provides additional information about an element.'
     ],
 
     buttons: {
-      next: HTMLConfig.buttonsConfig.basicSyntaxExplained,
+      nextPath: HTMLConfig.buttonsConfig.basicSyntaxExplained.path,
     }
   }
 
   ngOnInit(): void {
-    this.title.setTitle('ProgrammersWorld - Introduction to HTML');
+    this.metaAndTitleService.setTitle(this.tutorialItems.heading);
+    this.metaAndTitleService.setMetaTag({
+      name: 'keywords', content: [
+        'The meaning of hypertext',
+        'The meaning of a markup language',
+        'What HTML is',
+        'What HTML tag is',
+        'What HTML element is',
+        'What HTML attribute is'
+      ].toString().toLowerCase()
+    })
   }
-
 }

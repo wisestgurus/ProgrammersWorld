@@ -1,9 +1,94 @@
-<wg-tutorials [tutorialItems]='tutorialItems'>
-    <h4 class="heading">what is html</h4>
+<pw-tutorials [tutorialItems]='tutorialItems'>
+    <div>
+        <h4 class="heading">html</h4>
+        <p><b>HTML</b> stands for <b>H</b>yper<b>T</b>ext <b>M</b>arkup <b>L</b>anguage.</p>
 
-    <h4 class="heading">html tags</h4>
+        <p>It is the document used by the web to display static contents.</p>
 
-    <h4 class="heading">html elements</h4>
+        <p>It deals with the structure and display of webpages. </p>
 
-    <h4 class="heading">html attributes</h4>
-</wg-tutorials>
+
+        <p>It consists of <b>tags</b>, <b>elements</b> and <b>attributes</b> as the basic building blocks. </p>
+
+        <p>
+            With HTML alone, you only get static contents displayed (i.e. content that doesn't change), with no
+            visually appealing look.
+        </p>
+
+        <p>
+            It is usually assisted with other technologies like, <b>CSS</b> (<b>C</b>ascading <b>S</b>tyle<b>S</b>heets)
+            - for styling the looks and feel of a webpage and <b>JavaScript</b> (Scripting Language) - for dynamically
+            updating the content of a webpage (opposite of static contents - i.e. contents that change based on an
+            event).
+        </p>
+
+        <div pwAlert='info'>
+            You will learn more about <a routerLink>CSS</a> and <a routerLink>JavaScript</a> later on in their
+            respective tutorial section.
+        </div>
+    </div>
+
+    <div>
+        <h4 class="heading">html tags</h4>
+
+        <p>A <b>HTML tag or a tag</b> is a markup syntax surrounded by angle brackets <b>(&#60;&#62;)</b>.</p>
+        <p>Tags are not displayed by web browsers, but used to render the content of a webpage.</p>
+
+        <p>HTML tags come in pairs;</p>
+
+        <ol>
+            <li>An opening tag <b>(&#60;tagname&#62;)</b> also called a start tag and</li>
+            <li>A closing tag <b>(&#60;/tagname&#62;)</b> also called an end tag.</li>
+        </ol>
+
+        <p>With HTML tags alone, nothing gets displayed on the web browser.
+            This is were <b>HTML Elements</b> come to play.
+        </p>
+
+    </div>
+
+    <div>
+        <h4 class="heading">html elements</h4>
+
+        <p><b>HTML elements or elements</b> are blocks of code which consist of either;</p>
+
+        <ol>
+            <li>
+                An opening tag <b>(&#60;tagname&#62;)</b>, <b>element content</b> and a closing
+                tag<b>(&#60;/tagname&#62;)</b>, or
+            </li>
+
+            <li>
+                An opening tag <b>(&#60;tagname&#62;)</b>, <b>with no element content</b>. This is called an <b>empty
+                    element</b>; written as <b>(&#60;tagname&#62;)</b> or <b>(&#60;tagname/&#62;)</b>
+            </li>
+        </ol>
+
+        <p><b>Empty elements</b> are also called <b>empty tags</b> or <b> void elements</b>. It doesn't contain any
+            <b>element content</b> and are usually <b>closed</b> in the start tag like this;<b>(&#60;tagname/&#62;)</b>.
+        </p>
+
+        <div pwAlert='info'>
+
+            Empty tags or elements must not be closed, but it's recommended for strict validation process. At
+            ProgrammersWorld,
+            we highly recommend closing of empty tags.
+        </div>
+
+        <p>HTML elements can be nested (i.e. <b>elements</b> can <b>contain elements</b>).</p>
+    </div>
+
+    <div>
+        <h4 class="heading">html attributes</h4>
+        <p>A <b>HTML attribute or an attribute</b> provides <b>additional information</b> about an element.</p>
+        <p>All HTML elements can have <b>attributes</b>.</p>
+        <p>HTML attributes usually come in a name/value pairs, like; <b>name='value'</b>.</p>
+        <p>HTML attributes are always specified in the <b>start tag</b>.</p>
+
+        <div pwAlert='info'>
+            Since HTML tags are not displayed by web browsers and an attribute is specified inside of a tag, we can say
+            that attributes too, are not displayed by web browsers.
+        </div>
+    </div>
+<pw-code [a]='a' language='markup'></pw-code>
+</pw-tutorials>

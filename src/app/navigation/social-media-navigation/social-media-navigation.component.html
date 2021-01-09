@@ -1,0 +1,8 @@
+<h6 class="heading">contact us @</h6>
+
+<div class="d-flex flex-wrap justify-content-center">
+    <a *ngFor='let socialMedia of socialMedias' [href]="socialMedia.link" class="bg-light icons font-weight-bolder m-1"
+        [class]="socialMedia.class" role="link" [attr.aria-label]="socialMedia.name">
+        <i [class]="socialMedia.icon"></i> <span *ngIf='shouldIncludeName'> {{socialMedia.name}} </span>
+    </a>
+</div>

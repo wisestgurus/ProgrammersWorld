@@ -6,5 +6,5 @@ if (environment.production) {
   enableProdMode();
 }
 
-export { WGRootServerModule } from './server/wg-root.server.module';
+export { PWRootServerModule } from './server/pw-root.server.module';
 export { renderModule, renderModuleFactory } from '@angular/platform-server';

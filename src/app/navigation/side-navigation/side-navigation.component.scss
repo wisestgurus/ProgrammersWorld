@@ -12,9 +12,10 @@ button {
 }
 
 .expansion-panel {
-    background-color: inherit;
+    background-color: transparent;
 
     .expansion-panel-header {
+        padding: 1.7rem 1.2rem;
         &:hover {
             background: $background-color-on-hover;
             color: inherit;

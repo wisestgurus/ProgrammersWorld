@@ -1,7 +1,7 @@
 import { Directive, ElementRef, ErrorHandler, Input } from '@angular/core';
 
 @Directive({
-  selector: '[wgAlert]'
+  selector: '[pwAlert]'
 })
 export class AlertDirective {
 
@@ -61,7 +61,7 @@ export class AlertDirective {
     }
   }
 
-  @Input() set wgAlert(alertOptions) {
+  @Input() set pwAlert(alertOptions: 'success' | 'danger' | 'info' | 'primary' | 'secondary' | 'warning') {
     switch (alertOptions) {
       case 'success':
         this.alert();

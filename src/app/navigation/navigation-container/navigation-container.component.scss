@@ -11,6 +11,7 @@
     left: 0;
     background-color: $background-color;
     height: 100%;
+    display: block;
     padding-top: 60px;
     overflow-x: hidden;
     z-index: 1;
@@ -23,14 +24,14 @@
     max-height: auto;
 }
 
-
 #other-navigations {
     transition: all 0.2s ease-in-out;
 }
 
-
 #bottom-navigation {
     border-radius: 10px;
+    display: block;
+    word-wrap: break-word;
     background-color: $background-color;
     padding: 3.125rem 1.25rem;
 }

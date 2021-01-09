@@ -7,3 +7,18 @@
 .links {
     text-transform: capitalize;
 }
+
+.expansion-panel-content {
+    font-size: initial;
+    margin: initial;
+    padding: initial;
+}
+
+.expansion-panel-header {
+    background: transparent;
+    color: inherit;
+
+    &:hover {
+        background: transparent !important;
+    }
+}

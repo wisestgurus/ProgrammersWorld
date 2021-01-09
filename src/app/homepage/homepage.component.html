@@ -1,41 +1,86 @@
-<wg-navigation-container>
+<pw-navigation-container>
 
+    <!-- Beginning of Welcome Message -->
+    <div id="introduction" class="d-flex flex-column justify-content-center align-items-center">
+        <img src="../../assets/logo.jpg" class="img-fluid mb-3 rounded-lg" width="250px" />
+        <h5 class="heading">
+            said no to
+            <!--Beginning of ProgrammersWorld colourful text. Please Do not touch or modify it. -->
+            <span>
+                <sup><i class="fas fa-code text-danger"></i></sup>
+                <i style="color: darkorange;">p</i>
+                <i style="color: orangered;">r</i>
+                <i style="color: saddlebrown;">o</i>
+                <i style="color: blue;">g</i>
+                <i style="color: brown;">r</i>
+                <i style="color: navy;">a</i>
+                <i style="color: darkorange;">m</i>
+                <i style="color: brown;">m</i>
+                <i style="color: navy;">i</i>
+                <i style="color: saddlebrown;">n</i>
+                <i style="color: orangered;">g</i>
+                <sup><i class="fas fa-code text-danger"></i></sup>,
+            </span>
+            <!-- End of ProgrammersWorld colourful text. -->
+            say no to life.
+        </h5>
+
+        <h6 class="heading">
+            <i class="fas fa-arrow-right text-primary"></i>
+            <span class="mx-2">@programmersworld</span>
+            <i class="fas fa-arrow-left text-primary"></i>
+        </h6>
+
+        <i class="fas fa-handshake text-primary"></i>
+        <p class="heading">we rule</p>
+
+        <button class="btn btn-outline-primary" style="text-transform: capitalize; 
+            font-variant: small-caps;">take a tour <i class="fas fa-plane"></i></button>
+    </div>
+    <!--`End of Welcome Message -->
 
     <div class="card" [style.margin-bottom]="i !== dashboardItems.length - 1 ? '150px': ''"
         *ngFor='let dashboardItem of dashboardItems; let i = index;'>
-        <div class="card-header">
-            <h2 class="heading">{{dashboardItem.heading}}</h2>
+
+
+        <div style="background:
+        url({{dashboardItem.imageUrl}}) no-repeat center content-box; background-size: 100% 220px; height: 220px;">
         </div>
 
+        <h2 class="heading mt-4">{{dashboardItem.name}}</h2>
+
         <div class="card-body">
-            <p>{{dashboardItem.briefDescription}}</p>
-            <hr class="bg-dark">
 
-            <mat-tab-group *ngIf='dashboardItem.children'>
-
-                <mat-tab *ngFor='let children of dashboardItem.children'>
-                    <ng-template mat-tab-label>
-                        <h6 class="heading">{{children.heading}}</h6>
-                    </ng-template>
-
-                    <div class="card">
+            <div class="row">
+                <div class="col-12" *ngFor='let child of dashboardItem.children; let i = index;'>
+                    <div class="card dashboard-children" [class.my-4]='!(i === dashboardItem.children.length - 1)'>
                         <div class="card-header">
-                            <h6 class="text-danger" style="font-variant: small-caps;">category - {{children.category}}
+                            <h5 class="heading">{{child.name}}</h5>
+                            <h6 class="text-danger d-flex flex-wrap" style="font-variant: small-caps;">
+                                <span [class.mr-2]='!(i === child.categories.length - 1)'
+                                    *ngFor='let category of child.categories; let i = index;'>@{{category}}</span>
                             </h6>
                         </div>
 
                         <div class="card-body">
-                            <p class="card-text">{{children.briefDescription}}</p>
+                            <p class="card-text" *ngFor='let briefDescription of child.briefDescriptions'
+                                style="font-family: cursive, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                                {{briefDescription}}.</p>
 
-                            <button class="m-auto d-block">get started</button>
+                            <p style="font-family: cursive, 
+                            'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                                This tutorial is fun and easy to learn - You will enjoy it</p>
+
+
+                            <button class="m-auto d-block btn btn-outline-primary" [routerLink]='[child.path]'
+                                style="text-transform: capitalize; font-variant: small-caps;">learn
+                                {{child.name}}</button>
                         </div>
                     </div>
-                </mat-tab>
-            </mat-tab-group>
-
-            <mat-paginator></mat-paginator>
+                </div>
+            </div>
         </div>
+        <button *ngIf='dashboardItem?.noLoadMoreButton !== true' class="btn btn-primary">Load More</button>
     </div>
 
-
-</wg-navigation-container>
+</pw-navigation-container>

@@ -1,0 +1,25 @@
+@import "../navigation";
+
+.icons {
+    color: black;
+    display: inline-block;
+    background-color: inherit;
+    border: none;
+    border-radius: 20px;
+    text-transform: capitalize;
+    padding: 0.375rem 0.875rem;
+    text-decoration: none;
+    font-size: $font-size;
+    margin: 4px;
+
+    &:hover:not(.active) {
+        background: $background-color-on-hover;
+        color: initial;
+    }
+
+    &:active:not(.active) {
+        background: $background-color-on-click;
+        outline: none;
+        color: initial;
+    }
+}

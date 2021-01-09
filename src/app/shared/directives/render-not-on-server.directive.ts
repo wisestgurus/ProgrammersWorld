@@ -1,7 +1,7 @@
 import { isPlatformServer } from '@angular/common';
 import { PlatformRef, Directive, PLATFORM_ID, Inject, ViewContainerRef, TemplateRef, OnInit } from '@angular/core';
 @Directive({
-  selector: '[wgRenderNotOnServer]'
+  selector: '[pwRenderNotOnServer]'
 })
 export class RenderNotOnServerDirective implements OnInit {
 

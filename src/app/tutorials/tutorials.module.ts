@@ -3,20 +3,23 @@ import { CommonModule } from '@angular/common';
 import { NavigationModule } from '../navigation/navigation.module';
 import { SharedModule } from '../shared/shared';
 import { TutorialsComponent } from './tutorials.component';
-
+import { CodeModule } from './code/code.module';
 
 @NgModule({
-  declarations: [TutorialsComponent],
+  declarations: [
+    TutorialsComponent,
+  ],
   imports: [
     CommonModule,
     NavigationModule,
-    SharedModule
+    SharedModule,
   ],
 
   exports: [
     NavigationModule,
     SharedModule,
-    TutorialsComponent
+    TutorialsComponent,
+    CodeModule
   ]
 })
 export class TutorialsModule { }

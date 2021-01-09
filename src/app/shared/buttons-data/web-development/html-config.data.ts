@@ -1,10 +1,9 @@
 import { mainRoutePath, tutorialsRoutePath } from '../../routes-path';
 
 const startingPathForButtons = {
-    tutorials: `/${mainRoutePath.tutorials}/`,
-
     HTML:
-        `${tutorialsRoutePath.webDevelopment.main}/${tutorialsRoutePath.webDevelopment.HTML.main}/`,
+        `/${mainRoutePath.tutorials}/`.concat(`${tutorialsRoutePath.webDevelopment.main}/`,
+            `${tutorialsRoutePath.webDevelopment.HTML.main}/`)
 }
 
 export class HTMLConfig {
@@ -15,29 +14,29 @@ export class HTMLConfig {
                 `/${tutorialsRoutePath.webDevelopment.HTML.main}`),
         },
 
-        introductionToHTML: {
-            path: tutorialsRoutePath.webDevelopment.HTML.introductionToHTML
+        introduction: {
+            path: tutorialsRoutePath.webDevelopment.HTML.introduction
+        },
+
+        basicSyntaxExplained: {
+            path: tutorialsRoutePath.webDevelopment.HTML.basicSyntaxExplained
         },
     }
 
     static buttonsConfig = {
         main: {
             name: 'html',
-            path: `${startingPathForButtons.tutorials}`.concat(startingPathForButtons.HTML)
+            path: startingPathForButtons.HTML
         },
 
-        introductionToHTML: {
-            name: 'Introduction to html',
-            path: `${startingPathForButtons.tutorials}`.
-                concat(startingPathForButtons.HTML,
-                    tutorialsRoutePath.webDevelopment.HTML.introductionToHTML)
+        introduction: {
+            name: 'Introduction',
+            path: startingPathForButtons.HTML.concat(tutorialsRoutePath.webDevelopment.HTML.introduction)
         },
 
         basicSyntaxExplained: {
             name: 'basic syntax explained',
-            path: `${startingPathForButtons.tutorials}`.
-                concat(startingPathForButtons.HTML,
-                    tutorialsRoutePath.webDevelopment.HTML.basicSyntaxExplained)
+            path: startingPathForButtons.HTML.concat(tutorialsRoutePath.webDevelopment.HTML.basicSyntaxExplained)
         },
     }
 }

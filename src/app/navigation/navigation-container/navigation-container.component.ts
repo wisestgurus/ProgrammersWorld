@@ -1,93 +1,54 @@
-import { Component, Input, OnInit, Renderer2 } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ScreenLayoutService } from 'src/app/shared/shared';
+import { NavigationService } from '../navigation.service';
+import { NavigationStart, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
-  selector: 'wg-navigation-container',
+  selector: 'pw-navigation-container',
   templateUrl: './navigation-container.component.html',
   styleUrls: ['./navigation-container.component.scss'],
 })
 
 export class NavigationContainerComponent implements OnInit {
 
-  constructor(private renderer: Renderer2, private screenLayoutService: ScreenLayoutService) { }
+  constructor(private navigationService: NavigationService,
+    private router: Router, private screenLayoutService: ScreenLayoutService) { }
 
   @Input() otherNavigationItems;
+
+  sideNavigationOpened: boolean;
+  mode: 'side' | 'over';
 
   isHandset$ = this.screenLayoutService.isHandset$;
   isTablet$ = this.screenLayoutService.isTablet$;
 
-  sideNavigationOpened;
-
-  mode: 'side' | 'over';
-
-  openSideNavigation() {
-
-    const activateBackdrop = () => {
-      this.renderer.listen(document.querySelector('#other-navigations'),
-        'click', () => {
-          if (this.mode === 'over') {
-            this.closeSideNavigation();
-          }
-
-          else {
-            return;
-          }
-        })
-    }
-
-    this.sideNavigationOpened = true;
-
-    if (this.mode === 'over') {
-      this.renderer.setStyle(document.querySelector('#side-navigation'), 'width', '250px');
-      this.renderer.setStyle(document.querySelector('#other-navigations'),
-        'marginLeft', '0px');
-      this.renderer.setStyle(document.body, 'backgroundColor', 'rgba(0,0,0,0.4)');
-
-      activateBackdrop();
-
-    }
-
-    else {
-      this.renderer.setStyle(document.querySelector('#side-navigation'),
-        'width', '250px');
-      this.renderer.setStyle(document.querySelector('#other-navigations'),
-        'marginLeft', '250px');
-
-      this.renderer.setStyle(document.body, 'backgroundColor', 'white');
-
-    }
-  }
-
-  closeSideNavigation() {
-    this.sideNavigationOpened = false;
-
-    if (this.mode === 'over') {
-      this.renderer.setStyle(document.body, 'backgroundColor', 'white');
-    }
-
-    this.renderer.setStyle(document.querySelector('#side-navigation'), 'width', '0px');
-    this.renderer.setStyle(document.querySelector('#other-navigations'),
-      'marginLeft', '0px');
-  }
-
-  toggleSideNavigation() {
-    this.sideNavigationOpened ? this.closeSideNavigation() : this.openSideNavigation()
-  }
-
   defaultSideNavigationState() {
     this.isHandset$.subscribe((isHandset) => {
       if (isHandset) {
-        this.sideNavigationOpened = false;
+        this.navigationService.sideNavigationOpened = false;
+        this.sideNavigationOpened = this.navigationService.sideNavigationOpened;
         this.mode = 'over';
-        this.closeSideNavigation();
+        this.navigationService.mode = this.mode;
+        this.navigationService.closeSideNavigation();
       }
 
       else {
-        this.sideNavigationOpened = true;
+        this.navigationService.sideNavigationOpened = true;
+        this.sideNavigationOpened = this.navigationService.sideNavigationOpened;
         this.mode = 'side';
-        this.openSideNavigation();
+        this.navigationService.mode = this.mode;
+        this.navigationService.openSideNavigation();
       }
-    });
+    })
+
+    this.router.events.pipe(filter(event =>
+      event instanceof NavigationStart
+    )).subscribe(() => {
+      if (this.mode === 'over' && this.navigationService.sideNavigationOpened === true) {
+        this.navigationService.closeSideNavigation();
+      }
+    })
   }
 
   ngOnInit(): void {

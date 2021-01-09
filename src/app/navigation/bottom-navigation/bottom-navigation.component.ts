@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'wg-bottom-navigation',
+  selector: 'pw-bottom-navigation',
   templateUrl: './bottom-navigation.component.html',
   styleUrls: ['./bottom-navigation.component.scss']
 })

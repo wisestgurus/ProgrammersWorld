@@ -6,6 +6,7 @@ import { GettingStartedWithTheWebConfig }
 
 import { GettingStartedWithTheWebComponent } from
   './getting-started-with-the-web.component';
+import { HistoryOfTheWebComponent } from './history-of-the-web/history-of-the-web.component';
 import { IntroductionToTheWebComponent } from './introduction-to-the-web/introduction-to-the-web.component';
 
 const routes: Routes = [
@@ -13,12 +14,17 @@ const routes: Routes = [
     path: '', component: GettingStartedWithTheWebComponent, children: [
       {
         path: '',
-        redirectTo: GettingStartedWithTheWebConfig.routesPathConfig.introductionToTheWeb.path, pathMatch: 'full'
+        redirectTo: GettingStartedWithTheWebConfig.routesPathConfig.introduction.path, pathMatch: 'full'
       },
 
       {
-        path: GettingStartedWithTheWebConfig.routesPathConfig.introductionToTheWeb.path,
+        ...GettingStartedWithTheWebConfig.routesPathConfig.introduction,
         component: IntroductionToTheWebComponent
+      },
+
+      {
+        ...GettingStartedWithTheWebConfig.routesPathConfig.history,
+        component: HistoryOfTheWebComponent
       }
     ]
   },

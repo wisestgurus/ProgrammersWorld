@@ -1,7 +1,7 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { WGRootModule } from './app/wg-root.module';
+import { PWRootModule } from './app/pw-root.module';
 import { environment } from './environments/environment';
 
 if (environment.production) {
@@ -9,6 +9,6 @@ if (environment.production) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  platformBrowserDynamic().bootstrapModule(WGRootModule)
+  platformBrowserDynamic().bootstrapModule(PWRootModule)
   .catch(err => console.error(err));
 });

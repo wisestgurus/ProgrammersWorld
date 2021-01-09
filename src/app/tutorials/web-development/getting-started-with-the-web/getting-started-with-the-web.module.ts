@@ -6,9 +6,10 @@ import { GettingStartedWithTheWebComponent } from
   './getting-started-with-the-web.component';
 import { TutorialsModule } from '../../tutorials.module';
 import { IntroductionToTheWebComponent } from './introduction-to-the-web/introduction-to-the-web.component';
+import { HistoryOfTheWebComponent } from './history-of-the-web/history-of-the-web.component';
 
 @NgModule({
-  declarations: [GettingStartedWithTheWebComponent, IntroductionToTheWebComponent],
+  declarations: [GettingStartedWithTheWebComponent, IntroductionToTheWebComponent, HistoryOfTheWebComponent],
   imports: [
     CommonModule,
     GettingStartedWithTheWebRoutingModule,

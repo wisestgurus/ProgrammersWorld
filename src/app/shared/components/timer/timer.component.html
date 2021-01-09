@@ -3,6 +3,39 @@
 </button>
 
 <ng-template #timerInstructionRef>
+    <h2 class="heading">Timer settings</h2>
+    <p><b>Instructions;</b> A ___</p>
+    <form>
+        <div class="form-group">
+            <label class="font-weight-bold" for="exampleFormControlSelect1">*Working/Reading time</label>
+            <select class="form-control custom-select" id="exampleFormControlSelect1">
+                <option selected>25 minutes -- Recommended</option>
+                <option>20 minutes</option>
+                <option>15 minutes</option>
+                <option>10 minutes</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="font-weight-bold" for="long-break-time">*Long break time</label>
+            <select class="form-control custom-select" id="long-break-time">
+                <option selected>15 minutes -- Recommended</option>
+                <option>20 minutes</option>
+                <option>15 minutes</option>
+                <option>10 minutes</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="font-weight-bold" for="short-break-time">*Short break time</label>
+            <select class="form-control custom-select" id="short-break-time">
+                <option selected>25 minutes -- Recommended</option>
+                <option>20 minutes</option>
+                <option>15 minutes</option>
+                <option>10 minutes</option>
+            </select>
+        </div>
+    </form>
     <button mat-button class='btn-primary' (click)='startWorkTime(0.6)'>
         Start
     </button>
@@ -12,15 +45,20 @@
     {{minutesRemaining}}: {{secondsRemaining}}
 </button>
 <ng-template #timerSettingsRef>
-    <button *ngIf='isPlaying === false' class="bg-dark" mat-mini-fab (click)='playTime()'>
-        <i class="fas fa-play"> </i>
-    </button>
+    <div class="p-4 mb-2 rounded-lg text-center" style="border: 5px dotted red;">
+        {{minutesRemaining}}: {{secondsRemaining}}
+    </div>
+    <div class="d-flex justify-content-center">
+        <button *ngIf='isPlaying === false' class="bg-dark" mat-mini-fab (click)='playTime()'>
+            <i class="fas fa-play"> </i>
+        </button>
 
-    <button *ngIf='isPlaying === true' mat-mini-fab class="bg-dark" (click)='pauseTime()'>
-        <i class="fas fa-pause-circle"></i>
-    </button>
+        <button *ngIf='isPlaying === true' mat-mini-fab class="bg-dark" (click)='pauseTime()'>
+            <i class="fas fa-pause"></i>
+        </button>
 
-    <button mat-mini-fab class="bg-dark" (click)='stopTime()'>
-        <i class="fas fa-stop-circle"></i>
-    </button>
+        <button mat-mini-fab class="bg-dark" (click)='stopTime()'>
+            <i class="fas fa-stop"></i>
+        </button>
+    </div>
 </ng-template>

@@ -1,46 +1,57 @@
 import { GettingStartedWithTheWebConfig, HTMLConfig, navigationItemsInterface }
     from '../shared/shared';
 
+export const profileNavigationItems: navigationItemsInterface = {
+    heading: 'profile', items: [
+        { name: 'signup', path:'a' },
+        { name: 'login', path:'a' },
+        {
+            expansionHeader: 'my profile', expansionContents: [
+                {
+                    links: [
+                       
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
 export const mainNavigationItems: navigationItemsInterface = {
     heading: 'main', items: [
         {
-            heading: 'tutorials', contents: [
+            expansionHeader: 'tutorials', expansionContents: [
                 {
-                    heading: 'problem solving skills', links: [
-                    ]
-                },
+                    innerHeader: 'web development', links: [
+                        {
+                            ...GettingStartedWithTheWebConfig.buttonsConfig.main
+                        },
 
-                {
-                    heading: 'web development', links: [
-                        GettingStartedWithTheWebConfig.buttonsConfig.main,
-                        HTMLConfig.buttonsConfig.main
-                    ]
-                },
-            ]
-        },
-
-        {
-            heading: 'practice projects', contents: [
-                {
-                    links: [
+                        {
+                            ...HTMLConfig.buttonsConfig.main
+                        }
                     ]
                 }
             ]
         },
 
         {
-            heading: 'jobs', contents: [
-                {
-                    heading: '', links: [
-
-                    ]
-                }
-            ],
+            name: 'practice projects', path: 'p'
         },
 
         {
-            heading: 'about', path: 'abba'
+            name: 'find / post a job', path: 'p'
         },
 
+        {
+            expansionHeader: 'about', expansionContents: [{
+                links: [
+                    { name: 'about us', path: 'q' },
+                    { name: 'how to get involved', path: 'w' },
+                    { name: 'FAQ', path: 'v' }
+
+                ]
+            }]
+        }
     ]
 } 

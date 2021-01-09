@@ -1,16 +1,18 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { TimerService } from '../../services/timer.service';
 
 @Component({
-  selector: 'wg-timer',
+  selector: 'pw-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.scss']
 })
 export class TimerComponent implements OnInit {
 
-  constructor(private timerService: TimerService, private dialog: MatDialog) { }
+  constructor(private timerService: TimerService,
+    private dialog: MatDialog) { }
 
   @ViewChild('timerInstructionRef', { static: true }) timerInstructionRef;
   @ViewChild('timerSettingsRef', { static: true }) timerSettingsRef;
@@ -22,12 +24,12 @@ export class TimerComponent implements OnInit {
   timerSettingsDialog;
   time;
   isPlaying;
-    
+
   timer(initialMinutes, timerDialog) {
     let initialMinutesToSeconds = initialMinutes * 60;
     let minutes;
     let seconds;
-    
+
     this.time = this.timerService.timer(1000).subscribe(
       (a) => {
         minutes = Math.floor((initialMinutesToSeconds / 60));
@@ -43,11 +45,11 @@ export class TimerComponent implements OnInit {
   }
 
   openTimerInstruction() {
-    this.timerInstructionDialog = this.dialog.open(this.timerInstructionRef);
+    this.timerInstructionDialog = this.dialog.open(this.timerInstructionRef, { width: '100%' });
   }
 
   openTimerSettings() {
-    this.timerSettingsDialog = this.dialog.open(this.timerSettingsRef);
+    this.timerSettingsDialog = this.dialog.open(this.timerSettingsRef, { width: '100%' });
   }
 
   startWorkTime(initialMinutes) {

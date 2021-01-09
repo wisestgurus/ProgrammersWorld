@@ -19,20 +19,15 @@ export const tutorialsRoutePath =
 
         gettingStartedWithTheWeb: {
             main: 'getting-started-with-the-web',
+            introduction: 'introduction',
 
-            introductionToTheWeb: 'introduction-to-the-web',
-            historyOfTheWeb: 'history-of-the-web',
-            howTcpIpWorks: 'how-tcp-ip-works',
-            howTheWebWorks: 'how-the-web-works',
+            history: 'history',
 
-            whatIsWebDevelopment: 'what-is-web-development',
-            fieldsInWebDevelopment: 'fields-in-web-development',
-            importanceAndJobAvailability: 'importance-and-job-availability',
         },
 
         HTML: {
             main: 'html',
-            introductionToHTML: 'introduction-to-html',
+            introduction: 'introduction',
             basicSyntaxExplained: 'basic-syntax-explained'
         },
 
