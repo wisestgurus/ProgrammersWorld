@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { GettingStartedWithTheWebConfig, HTMLConfig, MetaAndTitleService } from '../shared/shared';
+import { MetaAndTitleService, TutorialsRoutingConfig } from '../shared/shared';
 
-interface dashboardItemsInterface {
+interface homepageItemsInterface {
   name: string, imageUrl: string, children: Array<{
-    name: string, categories: Array<string>, briefDescriptions: Array<string>, path?: string
-  }>, noLoadMoreButton?: true
+    name: string, categories: Array<string>, briefDescriptions: Array<string>,
+    tutorialOutlines?: Array<{ name: string, path: string, objectives: Array<string> }>
+  }>, seeAllButtonPath: string
 }
 
 @Component({
@@ -26,84 +27,71 @@ export class HomepageComponent implements OnInit {
       All our tutorials are easy, short, straightforward and fun to learn. Start learning today. It's free!!!`
 
 
-  dashboardItems: Array<dashboardItemsInterface> = [
+  homepageItems: Array<homepageItemsInterface> = [
     {
       name: 'tutorials',
       imageUrl: '../../assets/tutorials.jpg',
 
       children: [
         {
-          ...GettingStartedWithTheWebConfig.buttonsConfig.main,
+          ...TutorialsRoutingConfig.gettingStartedWithTheWeb.buttonsConfig.main,
           categories: ['web development'],
           briefDescriptions: [
             'The web (www or World Wide Web) is not the internet',
-            `It is a compilation of different series of HTML documents with all 
-            its web resources linked together`
+            `The web is a compilation of different series of HTML documents with all 
+            its resources linked together`
+          ],
+
+          tutorialOutlines: [
+            {
+              ...TutorialsRoutingConfig.gettingStartedWithTheWeb.buttonsConfig.introduction, objectives: [
+                'What a web asset is'
+              ]
+            },
+
+            {
+              ...TutorialsRoutingConfig.gettingStartedWithTheWeb.buttonsConfig.howTheWebWorks, objectives: [
+                'What a the web is'
+              ]
+            }
           ],
         },
 
 
-        {
-          ...HTMLConfig.buttonsConfig.main,
-          categories: ['web development'],
-          briefDescriptions: [
-            'HTML stands for HyperText Markup Language',
-            'It is the language used by the web to structure and display webpages',
-          ],
-          ...HTMLConfig.buttonsConfig.main
-        },
+        // {
+        //   ...HTMLConfig.buttonsConfig.main,
+        //   categories: ['web development'],
+        //   briefDescriptions: [
+        //     'HTML stands for HyperText Markup Language',
+        //     'It is the language used by the web to structure and display webpages',
+        //   ],
 
-        {
-          ...HTMLConfig.buttonsConfig.main,
-          categories: ['web development'],
-          briefDescriptions: [
-            'HTML stands for HyperText Markup Language',
-            'It is the language used by the web to structure and display webpages',
-          ],
-          ...HTMLConfig.buttonsConfig.main
-        },
-
-        {
-          ...HTMLConfig.buttonsConfig.main,
-          categories: ['web development'],
-          briefDescriptions: [
-            'HTML stands for HyperText Markup Language',
-            'It is the language used by the web to structure and display webpages',
-          ],
-          ...HTMLConfig.buttonsConfig.main
-        },
-
-        {
-          ...HTMLConfig.buttonsConfig.main,
-          categories: ['web development'],
-          briefDescriptions: [
-            'HTML stands for HyperText Markup Language',
-            'It is the language used by the web to structure and display webpages',
-          ],
-          ...HTMLConfig.buttonsConfig.main
-        }
+        //   tutorialOutlines: []
+        // },
       ],
+
+      seeAllButtonPath: TutorialsRoutingConfig.home.buttonConfig.path
     },
 
-    {
-      name: 'practice projects',
-      imageUrl: 'url../../assets/practice-projects.jpg',
-      children: [],
-    },
+    // {
+    //   name: 'practice projects',
+    //   imageUrl: 'url../../assets/practice-projects.jpg',
+    //   children: [],
+    // },
 
-    {
-      name: 'find or post a job',
-      imageUrl: '../../assets/job.jpg',
-      children: [],
-      noLoadMoreButton: true,
-    },
+    // {
+    //   name: 'find or post a job',
+    //   imageUrl: '../../assets/job.jpg',
+    //   children: [],
+    //   noLoadMoreButton: true,
+    // },
 
-    {
-      name: 'about us / how to get involved / FAQ',
-      imageUrl: '../../assets/about-us.jpg',
-      children: [],
-      noLoadMoreButton: true,
-    }
+    // {
+    //   name: 'about us / how to get involved / FAQ',
+    //   imageUrl: '../../assets/about-us.jpg',
+    //   children: [],
+    //   noLoadMoreButton: true,
+    // }
   ]
 
 

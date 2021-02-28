@@ -41,3 +41,18 @@
         transform: translateX(-50%) translateY(8px) rotate(0deg);
     }
 }
+
+.expansion-panel {
+    background-color: transparent;
+
+    .expansion-panel-header {
+        padding: 0.375rem 0.875rem;
+        text-transform: capitalize;
+        color: blue;
+        font-variant: small-caps;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        &:hover {
+            background: $background-color-on-hover;
+        }
+    }
+}

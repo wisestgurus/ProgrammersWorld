@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { ServerModule } from '@angular/platform-server';
-import { PWRootComponent } from '../app/pw-root.component';
+import { PWRootComponent } from '../app/pw-root/pw-root.component';
 
-import { PWRootModule } from '../app/pw-root.module';
+import { PWRootModule } from '../app/pw-root/pw-root.module';
 
 @NgModule({
   imports: [

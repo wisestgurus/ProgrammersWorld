@@ -2,6 +2,8 @@ export const mainRoutePath = { dashboard: '', tutorials: 'tutorials' }
 
 export const tutorialsRoutePath =
 {
+    home: 'home',
+    
     CT:
     {
         main: 'computational-thinking',
@@ -20,8 +22,9 @@ export const tutorialsRoutePath =
         gettingStartedWithTheWeb: {
             main: 'getting-started-with-the-web',
             introduction: 'introduction',
-
             history: 'history',
+            howTheInternetWorks: 'how-the-internet-works',
+            howTheWebWorks: 'how-the-web-works'
 
         },
 

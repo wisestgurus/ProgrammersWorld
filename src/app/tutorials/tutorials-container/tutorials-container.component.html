@@ -1,0 +1,155 @@
+<div class="clearfix d-print-none">
+    <button [routerLink]='tutorialItems.buttons.prevPath' class="float-left button-navigator btn btn-success"
+        *ngIf='tutorialItems.buttons.prevPath'>
+        <i class="fas fa-arrow-left"></i><i class="fas fa-arrow-left"></i>previous
+    </button>
+
+    <button [routerLink]='tutorialItems.buttons.nextPath' class="float-right button-navigator btn btn-success"
+        *ngIf='tutorialItems.buttons.nextPath'>
+        next <i class="fas fa-arrow-right"></i><i class="fas fa-arrow-right"></i>
+    </button>
+</div>
+
+<h3 class="heading">{{tutorialItems.heading}}</h3>
+
+<!-- Brief Intro -->
+<mat-expansion-panel [expanded]='expanded' *ngIf='tutorialItems.briefIntro' pwAlert='success'>
+    <mat-expansion-panel-header class="expansion-panel-header">
+        <h5 class="heading mx-auto">Brief Intro</h5>
+    </mat-expansion-panel-header>
+
+    <div class="expansion-panel-content">
+        <p *ngFor='let briefIntro of tutorialItems.briefIntro'>{{briefIntro}}.</p>
+        <p>This tutorial is fun and easy to learn - You will enjoy it.</p>
+    </div>
+</mat-expansion-panel>
+<!-- Brief Intro Ends -->
+
+<!-- Prerequisites -->
+<mat-expansion-panel [expanded]='expanded' pwAlert='warning'>
+    <mat-expansion-panel-header class="expansion-panel-header">
+        <h5 class="heading text-left mx-auto">Prerequisites</h5>
+    </mat-expansion-panel-header>
+
+    <div class="expansion-panel-content">
+        <p class="font-weight-bold">Before you begin with this tutorial,
+            it is assumed that you have learnt (in the order below);</p>
+        <ol>
+            <li *ngFor='let prerequisite of tutorialItems?.prerequisites'>
+
+                <span *ngIf='prerequisite.path'>
+
+                    <a class="links" [routerLink]='prerequisite.path'>
+                        {{prerequisite.name}}<i class="ml-1 fas fa-external-link-alt"></i></a>
+
+                    <span *ngIf='prerequisite.isOptional'> -- Optional.</span>
+                    <span *ngIf='!(prerequisite.isOptional)'> -- Required.</span>
+
+                </span>
+
+                <span class="links" *ngIf='!(prerequisite.path)'>{{prerequisite.name}}.</span>
+
+            </li>
+        </ol>
+    </div>
+</mat-expansion-panel>
+<!-- Prerequisites End -->
+
+<!-- Objectives -->
+<mat-expansion-panel [expanded]='expanded' pwAlert='warning'>
+    <mat-expansion-panel-header style="background-color: initial;" class="expansion-panel-header">
+        <h5 class="heading mx-auto">Objectives</h5>
+    </mat-expansion-panel-header>
+
+    <div class="expansion-panel-content">
+        <p class="font-weight-bold">At the end of this tutorial, you should have learnt;</p>
+
+        <ol>
+            <li style="text-transform: capitalize;" *ngFor='let objective of tutorialItems.objectives'>
+                {{objective}}.
+            </li>
+        </ol>
+    </div>
+</mat-expansion-panel>
+<!-- Objectives End -->
+
+<!-- Glossaries -->
+<mat-expansion-panel *ngIf='tutorialItems?.glossaries' [expanded]='expanded' pwAlert='secondary'>
+    <mat-expansion-panel-header class="expansion-panel-header">
+        <h5 class="heading mx-auto">basic terms</h5>
+    </mat-expansion-panel-header>
+
+    <div class="expansion-panel-content" *ngFor='let glossary of tutorialItems.glossaries; let i = index;'>
+        <p class="heading text-left"><span> ({{i + 1}}). </span>{{glossary.heading}}</p>
+
+        <ul>
+            <span class="heading text-left">Definition(s)</span>
+
+            <li *ngFor='let definition of glossary.definitions'>
+                {{definition}}.
+            </li>
+        </ul>
+
+        <ul *ngIf='glossary.examples'>
+            <span class="heading text-left">Example(s)</span>
+
+            <li *ngFor='let example of glossary.examples; let j = index;'>{{example}},
+                <span *ngIf='j === glossary.examples.length - 1'> etc...</span>
+            </li>
+        </ul>
+
+        <hr *ngIf='!(i === tutorialItems.glossaries.length - 1)' class="bg-dark" />
+    </div>
+</mat-expansion-panel>
+<div *ngIf='tutorialItems.glossaries' pwAlert='danger'>
+    The basic term section may contain essential definitions which will help
+    you to understand the remaining part of the tutorial. Please do not skip!!!
+</div>
+<!-- Glossaries End -->
+
+<ng-content></ng-content>
+
+<!-- Summary -->
+<mat-expansion-panel [expanded]='expanded' pwAlert='success'>
+
+    <mat-expansion-panel-header class="expansion-panel-header">
+        <h5 class="heading mx-auto">Summary</h5>
+    </mat-expansion-panel-header>
+
+    <div class="expansion-panel-content">
+        <p *ngFor='let summary of tutorialItems.summaries'>{{summary}}</p>
+    </div>
+
+</mat-expansion-panel>
+<!-- Summary Ends -->
+
+<!-- Objectives -->
+<mat-expansion-panel [expanded]='expanded' pwAlert='warning'>
+    <mat-expansion-panel-header class="expansion-panel-header">
+        <h5 class="heading mx-auto">Objectives<i class="fas fa-check"></i><i class="fas fa-check"></i></h5>
+    </mat-expansion-panel-header>
+
+    <div class="expansion-panel-content">
+        <p class="font-weight-bold">Before you proceed, ensure that you have learnt;</p>
+
+        <ol>
+            <li style="text-transform: capitalize;" *ngFor='let objective of tutorialItems.objectives'>
+                {{objective}}.<i class="fas fa-check text-success"></i>
+            </li>
+        </ol>
+    </div>
+</mat-expansion-panel>
+<!-- Objectives End -->
+
+
+<div class="clearfix d-print-none">
+    <button [routerLink]='tutorialItems.buttons.prevPath' class="float-left button-navigator btn btn-success"
+        *ngIf='tutorialItems.buttons.prevPath'>
+        <i class="fas fa-arrow-left"></i><i class="fas fa-arrow-left"></i>previous
+    </button>
+
+    <button [routerLink]='tutorialItems.buttons.nextPath' class="float-right button-navigator btn btn-success"
+        *ngIf='tutorialItems.buttons.nextPath'>
+        next <i class="fas fa-arrow-right"></i><i class="fas fa-arrow-right"></i>
+    </button>
+</div>

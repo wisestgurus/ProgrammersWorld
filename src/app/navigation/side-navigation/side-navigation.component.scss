@@ -1,21 +1,41 @@
 @import "../navigation";
 @include navigation-link;
 
+#side-navigation-inner {
+    position: fixed;
+    padding-top: 58px;
+    padding-bottom: 0;
+    height: 100%;
+    width: inherit;
+    background-color: transparent;
+}
+
+#side-navigation-inner-inner {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: transparent;
+}
+
 button {
     outline: none;
 }
 
 .navigation-content {
     text-align: left;
-    padding: 14px 0 14px 22px;
-    font-size: 15px;
+    font-size: $font-size;
 }
 
 .expansion-panel {
     background-color: transparent;
 
     .expansion-panel-header {
-        padding: 1.7rem 1.2rem;
+        padding: 0.375rem 0.875rem;
+        text-transform: capitalize;
+        font-variant: small-caps;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        font-size: $font-size;
         &:hover {
             background: $background-color-on-hover;
             color: inherit;

@@ -1,0 +1,90 @@
+<pw-tutorials-container [tutorialItems]='tutorialItems'>
+    <div>
+        <h4 class="heading">Introduction</h4>
+        <p>An <b>information system</b> made up of different websites linked together is referred to as <b>the web</b>.
+            (An information system in a layman term is anything designed to collect, process, store, and distribute
+            information).</p>
+
+        <p>Contents on the web are shared through the internet with the help of TCP/IP. However, the web also has its
+            own protocol known as HTTP (which stands for <b>H</b>yper<b>T</b>ext <b>T</b>ransfer <b>P</b>rotocol)
+            to handle specific web request made by the user to the web server. (i.e. a request-response model )</p>
+
+        <p>This request-response model is known as the communication of the web between the client and the
+            server - <b>client-server communiation</b>. (i.e. The client makes a request to the server
+            using a web browser and the server responds back. HTTP is the protocol that allows for such request-response
+            communication). (A protocol is just a rule or a guide used in achieving anything)</p>
+
+        <div pwAlert='info'>
+            HTTP establishes connection between the client and the server on the web to check whether the data
+            requested exists. While TCP/IP ensures that the data returned by the web server is delivered successfully.
+        </div>
+
+    </div>
+
+    <div>
+        <h4 class="heading">How HTTP works</h4>
+        <p>For HTTP to establish connection between the client and the server, they both need to reference or point to
+            the same location using a URL.</p>
+
+        <p>For instance, let's take this simple URL - (<b>/api/books/</b>) in bracket as an example. </p>
+
+        <ol>
+            <li>
+                From the <b>servers</b> point of view
+                <ul>
+                    <li>The server is constantly <b>listening for any web client (or browser)</b> that points to the URL
+                        above. If it gets a <b>client request</b>, then it <b>responds</b> back to the client with the
+                        <b>corresponding data.</b>
+                    </li>
+
+                    <li>
+                        A <b>web server</b> is similar to a <b>shop owner</b>. If a <b>customer
+                            requests</b> for a particular item in the shop, then the shop owner gives the customer back
+                        the item as a <b>response</b>.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                From the <b>clients (or web browsers)</b> point of view
+                <ul>
+                    <li>When the client points to the URL above, HTTP takes over. <b>HTTP checks whether the URL
+                            specified by the client matches the one on the web server.</b>
+                    </li>
+
+                    <li>
+                        If it does, <b>HTTP returns back a successful message to the browser</b>, then <b>TCP/IP
+                            trasmits the data returned by the server to the browser</b> and finally the <b>connection
+                            terminates</b> (ends or closes).
+                    </li>
+
+                    <li>
+                        If the URL doesn't match, <b>HTTP instead returns back an error message to the browser</b>,
+                        then the <b>connection terminates with no data returned</b>.
+                    </li>
+
+                    <li>
+                        But wait, this means that the browser is stuck with diplaying nothing right? Luckily enough, web
+                        browsers have tackled such problem by instead displaying a "404 page not found" message.
+                    </li>
+                </ul>
+            </li>
+
+        </ol>
+
+        <div pwAlert='info'>
+            Often times, we come across the "404 page not found" message, this is usually because the URL on
+            the client side doesn't match the one on the server, which in turn doesn't exist and no data is
+            returned.
+        </div>
+        <div pwAlert='danger'>
+            HTTP messages are not visible on the homepage of a web browser. To be able to see it, you must open the dev
+            tools.
+        </div>
+
+        <div pwAlert='info'>
+            Don't worry too much about the dev tools and HTTP messages - You will learn much more about them in
+            their respective tutorial sections.
+        </div>
+
+    </div>
+</pw-tutorials-container>

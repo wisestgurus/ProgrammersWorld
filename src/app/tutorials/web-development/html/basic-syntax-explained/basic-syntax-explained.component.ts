@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HTMLConfig, MetaAndTitleService, tutorialItemsInterface } from 'src/app/shared/shared';
+import { TutorialsRoutingConfig, MetaAndTitleService, tutorialItemsInterface } from 'src/app/shared/shared';
 @Component({
   selector: 'pw-basic-syntax-explained',
   templateUrl: './basic-syntax-explained.component.html',
@@ -11,7 +11,7 @@ export class BasicSyntaxExplainedComponent implements OnInit {
 
   tutorialItems: tutorialItemsInterface = {
     heading: 'Basic Syntax Explained',
-    prerequisites: [{ ...HTMLConfig.buttonsConfig.introduction }],
+    prerequisites: [{ ...TutorialsRoutingConfig.HTML.buttonsConfig.introduction }],
     objectives: [
       'The basic tags included in every HTML document, with an explanation of how browsers render each one of them',
       'The best practice involved in using either a single or a double quote for attribute values',
@@ -20,7 +20,7 @@ export class BasicSyntaxExplainedComponent implements OnInit {
 
     summaries: [],
     buttons: {
-      prevPath: HTMLConfig.buttonsConfig.introduction.path
+      prevPath: TutorialsRoutingConfig.HTML.buttonsConfig.introduction.path
     }
   }
 

@@ -37,50 +37,66 @@
         <button class="btn btn-outline-primary" style="text-transform: capitalize; 
             font-variant: small-caps;">take a tour <i class="fas fa-plane"></i></button>
     </div>
-    <!--`End of Welcome Message -->
+    <!-- End of Welcome Message -->
 
-    <div class="card" [style.margin-bottom]="i !== dashboardItems.length - 1 ? '150px': ''"
-        *ngFor='let dashboardItem of dashboardItems; let i = index;'>
+    <!-- Beginning of tutorials -->
+    <div class="card" [style.margin-bottom]="i !== homepageItems.length - 1 ? '150px': ''"
+        *ngFor='let homepageItem of homepageItems; let i = index;'>
 
 
         <div style="background:
-        url({{dashboardItem.imageUrl}}) no-repeat center content-box; background-size: 100% 220px; height: 220px;">
+        url({{homepageItem.imageUrl}}) no-repeat center content-box; background-size: 100% 220px; height: 220px;">
         </div>
 
-        <h2 class="heading mt-4">{{dashboardItem.name}}</h2>
+        <h2 class="heading mt-4">{{homepageItem.name}}</h2>
 
         <div class="card-body">
-
-            <div class="row">
-                <div class="col-12" *ngFor='let child of dashboardItem.children; let i = index;'>
-                    <div class="card dashboard-children" [class.my-4]='!(i === dashboardItem.children.length - 1)'>
-                        <div class="card-header">
-                            <h5 class="heading">{{child.name}}</h5>
-                            <h6 class="text-danger d-flex flex-wrap" style="font-variant: small-caps;">
-                                <span [class.mr-2]='!(i === child.categories.length - 1)'
-                                    *ngFor='let category of child.categories; let i = index;'>@{{category}}</span>
-                            </h6>
-                        </div>
-
-                        <div class="card-body">
-                            <p class="card-text" *ngFor='let briefDescription of child.briefDescriptions'
-                                style="font-family: cursive, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
-                                {{briefDescription}}.</p>
-
-                            <p style="font-family: cursive, 
-                            'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
-                                This tutorial is fun and easy to learn - You will enjoy it</p>
-
-
-                            <button class="m-auto d-block btn btn-outline-primary" [routerLink]='[child.path]'
-                                style="text-transform: capitalize; font-variant: small-caps;">learn
-                                {{child.name}}</button>
-                        </div>
-                    </div>
+            <div *ngFor='let child of homepageItem.children; let i = index;' class="card homepage-children"
+                [class.my-4]='!(i === homepageItem.children.length - 1)'>
+                <div class="card-header">
+                    <h5 class="heading">{{child.name}}</h5>
+                    <h6 class="text-danger d-flex flex-wrap" style="font-variant: small-caps;">
+                        <span [class.mr-2]='!(i === child.categories.length - 1)'
+                            *ngFor='let category of child.categories; let i = index;'>@{{category}}</span>
+                    </h6>
                 </div>
+
+                <div class="m-2">
+                    <p class="card-text" *ngFor='let briefDescription of child.briefDescriptions' style="font-family: cursive, 'Trebuchet MS', 
+                        'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; ">
+                        {{briefDescription}}.</p>
+
+                    <p
+                        style="font-family: cursive, 
+                                'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                        This tutorial is fun and easy to learn - You will enjoy it</p>
+                </div>
+
+                <mat-expansion-panel class="expansion-panel mat-elevation-z0">
+                    <mat-expansion-panel-header class="font-weight-bold expansion-panel-header">
+                        Tutorial Outline
+                    </mat-expansion-panel-header>
+
+                    <div *ngFor='let tutorialOutline of child.tutorialOutlines'>
+
+                        <div class="d-flex justify-content-center">
+                            <a class="heading my-2" [routerLink]='[tutorialOutline.path]'>
+                                learn {{tutorialOutline.name}} <i class="ml-1 fas fa-external-link-alt"></i></a>
+                        </div>
+
+                        <p class="font-weight-bold">What you'll learn;</p>
+                        <ol>
+                            <li *ngFor='let objective of tutorialOutline.objectives'>{{objective}}.</li>
+                        </ol>
+                    </div>
+                </mat-expansion-panel>
             </div>
         </div>
-        <button *ngIf='dashboardItem?.noLoadMoreButton !== true' class="btn btn-primary">Load More</button>
+
+        <button [routerLink]='[homepageItem.seeAllButtonPath]' class="btn btn-primary mt-4"
+            style="text-transform: capitalize; font-variant: small-caps;">see full list of
+            {{homepageItem.name}} </button>
     </div>
+    <!-- End of tutorials -->
 
 </pw-navigation-container>

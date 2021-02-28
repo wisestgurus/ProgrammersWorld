@@ -9,11 +9,13 @@ import { RenderNotOnServerDirective } from './directives/render-not-on-server.di
 import { RenderOnlyOnServerDirective } from './directives/render-only-on-server.directive';
 
 import { TimerComponent } from './components/timer/timer.component';
+import { AngularFirebaseModule } from './angular-firebase/angular-firebase.module';
 
 @NgModule({
   imports: [
     MaterialModule,
     CommonModule,
+    AngularFirebaseModule
   ],
 
   exports: [
@@ -23,6 +25,7 @@ import { TimerComponent } from './components/timer/timer.component';
     RenderOnlyOnServerDirective,
     AlertDirective,
     MaterialModule,
+    AngularFirebaseModule,
     TimerComponent,
   ],
 

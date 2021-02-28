@@ -1,3 +1,16 @@
 <pw-navigation-container>
-    <p>Page Not Found</p>
+    <h3 class="heading">Page not found</h3>
+
+    <div pwAlert='danger-with-no-heading'>
+        <img class="img-fluid rounded-lg m-auto d-block" src='../../assets/404.gif'>
+
+        <div class="mt-4">
+            <p class="heading text-left">Possible solutions;</p>
+            <ul>
+                <li>Go back to the <a [routerLink]='["/"]'>homepage</a>.</li>
+                <li>Use the side (<i class="fas fa-bars"></i>) or top navigation to navigate to wherever you want.</li>
+            </ul>
+        </div>
+
+    </div>
 </pw-navigation-container>

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {
-  tutorialItemsInterface, HTMLConfig,
-  GettingStartedWithTheWebConfig, MetaAndTitleService
+  tutorialItemsInterface, TutorialsRoutingConfig, MetaAndTitleService
 } from 'src/app/shared/shared';
 
 @Component({
@@ -27,7 +26,7 @@ export class IntroductionToHTMLComponent implements OnInit {
 
     prerequisites: [
       {
-        ...GettingStartedWithTheWebConfig.buttonsConfig.main,
+        ...TutorialsRoutingConfig.gettingStartedWithTheWeb.buttonsConfig.main,
       },
     ],
 
@@ -67,7 +66,7 @@ export class IntroductionToHTMLComponent implements OnInit {
     ],
 
     buttons: {
-      nextPath: HTMLConfig.buttonsConfig.basicSyntaxExplained.path,
+      nextPath: TutorialsRoutingConfig.HTML.buttonsConfig.basicSyntaxExplained.path,
     }
   }
 

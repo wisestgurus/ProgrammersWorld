@@ -5,21 +5,18 @@
 }
 
 #side-navigation {
-    position: fixed;
+    position: fixed !important;
     top: 0;
-    bottom: 0;
     left: 0;
     background-color: $background-color;
     height: 100%;
-    display: block;
-    padding-top: 60px;
-    overflow-x: hidden;
+    display: block !important;
+    overflow: auto;
     z-index: 1;
     transition: width 0.2s ease-in-out;
 }
 
 #main-content {
-    padding: 3.125rem 1.25rem;
     min-height: 81.8rem;
     max-height: auto;
 }

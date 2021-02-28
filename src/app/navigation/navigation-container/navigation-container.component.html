@@ -3,13 +3,17 @@
 
 <div [ngStyle]='mode === "side" ? {marginLeft:"250px"} : {marginLeft:"0"}' id="other-navigations">
 
-    <pw-search-navigation></pw-search-navigation>
+    <pw-search-navigation class="d-print-none"></pw-search-navigation>
 
-    <main id="main-content">
-        <ng-content></ng-content>
-    </main>
+    <div class="container-fluid">
+        <main id="main-content" class="my-4">
+            <ng-content></ng-content>
+        </main>
 
-    <footer class="container">
-        <pw-bottom-navigation id="bottom-navigation"></pw-bottom-navigation>
-    </footer>
+        <footer class="d-print-none">
+            <pw-bottom-navigation id="bottom-navigation"></pw-bottom-navigation>
+        </footer>
+    </div>
+
+
 </div>

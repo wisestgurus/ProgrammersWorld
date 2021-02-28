@@ -1,0 +1,97 @@
+<pw-tutorials-container [tutorialItems]='tutorialItems'>
+    <div>
+        <h4 class="heading">introduction</h4>
+        <p>The internet by definition is a network that connects other networks together and makes sharing of data
+            globally possible.</p>
+        <p>The internet ensures data are delivered successfully using a set or family of protocol known as the
+            <b>Internet protocol suite</b>. (Protocol means a rule or guide used in carrying out anything).
+        </p>
+        <p>These protocols are divided into layers, but we won't go much into that. The two most important protocols we
+            are going to focus on in this particular tutorial are; TCP/IP.</p>
+
+        <p>TCP stands for <b>T</b>ransmission <b>C</b>ontrol <b>P</b>rotocol, while IP stands for <b>I</b>nternet
+            <b>P</b>rotocol. They are two different protocols with each one of them having its own responsiblity or
+            role.
+            But they are generally classified to be one because they depend on each other alot, as you will soon find
+            out.
+        </p>
+
+        <div pwAlert='info'>
+            Every information system shared through the internet (e.g. the web, etc) uses TCP/IP for communication
+            and also has the ability to create its own protocol.
+        </div>
+
+        <div>
+            <h4 class="heading">how TCP/IP works</h4>
+            <ol>
+                <li>
+                    <span class="font-weight-bolder">TCP</span>
+                    <ul>
+                        <li>
+                            When billions of data are sent through the internet, the responsibility of TCP is to
+                            ensure that the datas are tracked and delivered successfully.
+                        </li>
+
+                        <li>
+                            TCP does that by breaking down each of those data (sent by millions of people through the
+                            internet) into <b>smaller chunks of data</b> called <b>packets</b> for faster transmission
+                            (or delivery). (e.g. if a data of 1gigabyte is sent through the internet using an
+                            information system like the web, TCP breaks the data into smaller sizes (making upto 1
+                            gigabyte) - let's say 1kb each. Hence every 1kb of data in this example is called a packet).
+                        </li>
+
+                        <li>
+                            When TCP breaks the big data into packets, <b>it assigns a TCP header to every packet</b>.
+                            This header contains information such as how to <b>track</b> every packet to ensure
+                            successful delivery even when lost along the way and also how to <b>re-arrange</b> those
+                            packets back to their initial data, so that the receiver can now see the data exactly as it
+                            was sent.
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    <span class="font-weight-bolder">IP</span>
+                    <ul>
+                        <li>
+                            The responsibility of IP is to ensure that those packets contain the location (or address)
+                            of
+                            both the sender and the receiver.
+                        </li>
+
+                        <li>
+                            IP does that by adding its own header to each packet, known as <b>IP header</b>. IP header
+                            contains information about the <b>senders (or source) address</b> and the <b>receivers (or
+                                destination) address.</b>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <span class="font-weight-bolder">Summary</span>
+                    <ul>
+                        <li>
+                            <b>Tracking of data</b> sent over the internet to ensure it is <b>delivered successfully</b>
+                            won't be possible without <b>TCP</b>.
+                        </li>
+
+                        <li>
+                            Also sending the data to the <b>right location (or address)</b> won't be possible without
+                            <b>IP</b>.
+                        </li>
+
+                        <li>
+                            Hence the reason why they are mostly grouped as one <b>(TCP/IP)</b>.
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+            <div pwAlert='danger'>
+                TCP/IP is not the only protocol used by the internet. This is not a networking tutorial. You are
+                learning it because, you need to have an idea of how contents on the web are shared through the
+                internet and to be able to differentiate it with how HTTP works, which is taught in a later tutorial.
+            </div>
+        </div>
+    </div>
+</pw-tutorials-container>

@@ -8,6 +8,7 @@ button {
 .dropdown-menu {
     background-color: $background-color;
     margin-top: -0.6px;
+    width: inherit;
 }
 
 .show button.dropdown-toggle::after {
@@ -21,4 +22,10 @@ button {
     display: grid;
     grid-auto-flow: row;
     grid-template-columns: repeat(4, 4fr);
+    min-height: auto;
+    max-height: 300px;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: transparent;
 }

@@ -1,56 +1,92 @@
-<pw-tutorials [tutorialItems]='tutorialItems'>
+<pw-tutorials-container [tutorialItems]='tutorialItems'>
     <div>
         <h4 class="heading">the web</h4>
-        <p><b>The web</b>, by definition is just a <b>combination</b> of <b>different websites linked together</b> and
-            shared over the internet.</p>
+        <p>An <b>information system</b> made up of different websites linked together is referred to as <b>the web</b>.
+            (An information system in a layman term is anything designed to collect, process, store, and distribute
+            information).</p>
 
-        <div class="font-weight-bolder" pwAlert='info'>Note: A website links two or more webpages together, but the web
+        <div pwAlert='info'>A website links two or more webpages together, but the web
             links two or more websites together. Please try and understand the difference.</div>
 
-        <h5 class="heading">brief analogy of the web</h5>
-        <p>In a library consisting of millions of books, each book has its own number of pages. Depending on the book,
-            a page might have images in it, some might include icons in it as well, and in general the text of every
-            page in a book is styled nicely.
-        </p>
-        <h6 class="font-weight-bolder">Now read carefully;</h6>
 
+        <h5 class="heading">brief analogy of the web</h5>
+        <p>In a library consisting of millions of books, each book has its own number of pages and every book is
+            recognized by its unique name. Depending on the book and the author, a book can include images in some its
+            pages, some only have text in it, some can be well descriptive with lots of illustrations, some
+            might include icons in it and in general the text of every page in a book is styled nicely based on the
+            taste of the author.
+        </p>
+
+        <h6 class="font-weight-bolder">Now read carefully;</h6>
         <ul>
-            <li><b>The library consisting of millions of books</b> is equivalent to <b>the web</b>.</li>
-            <li><b>Each page</b> of a book is equivalent to <b>a webpage</b>.</li>
-            <li><b>Each book</b> is equivalent to <b>a website</b>.</li>
+            <li><b>The library (an information system) consisting of millions of books</b> is equivalent to <b>the web
+                    consisting of different websites</b>.</li>
+            <li><b>Each book</b> is equivalent to <b>a website with a unique name</b>.</li>
+            <li><b>Each page</b> of a book is equivalent to <b>a webpage</b> of a website.</li>
             <li>
                 <b>The images, icons or font types</b> used in a particular <b>page</b> of a book is equivalent to
-                <b>a web resource (or an asset).</b>
+                <b>a web asset included in a webpage.</b>
             </li>
             <li>
                 To be able to <b>search and find books in the library</b> (or <b>search and find websites in the
                     web</b>), you will need a <b>search engine</b>.
             </li>
+
             <li>
-                To be able to <b>view the book you searched for</b> (or <b>view the website you searched for</b>), you
-                will need a <b>web browser</b>.
+                Inside of an <b>application</b> consists of a <b>search engine (with the search bar being
+                    the visible part)</b> and <b>anything related to the web</b>. This is a <b>web browser</b>.
             </li>
         </ul>
+
+        <!-- <img class="img-fluid" src="../../../../../assets/browser.jpg" />
+        <br />
+        <img class="img-fluid" src="../../../../../assets/search-engine.jpg" />
+        <br />
+        <img class="img-fluid" src="../../../../../assets/webpage.jpg" />
+        <br />
+        <img class="img-fluid" src="../../../../../assets/website.jpg" /> -->
+
 
     </div>
 
     <div>
         <h4 class="heading">the internet</h4>
-        <p><b>The internet</b> by definition, is just <b>a network of networks</b>. This is what makes <b>connection</b>
-            and <b>sharing of data</b> on the web <b>globally</b> possible.</p>
+        <p><b>The internet</b> by definition, is <b>a global system of interconnected networks</b>. This is what makes
+            <b>connection</b> and <b>sharing of contents</b> on the web <b>globally</b> possible. (A network is when two
+            or more things connect together).
+        </p>
+
+        <p>The moment you on your mobile data, you are automatically connected to the internet. Other devices which
+            provide internet access include; a router, a modem, a wifi, etc...</p>
+
 
         <h5 class="heading">brief analogy of the internet</h5>
-        Continuing from the library example above. Remember the library consist of different books (which is equivalent
-        to the web consisting of different websites), but how can people get good delivery after buying those books.
-        Fortunately, the library has a delivery person which delivers the books to those who buy it.
+        <p>
+            Continuing from the library example above. People generally visit the library to buy books and some prefer
+            to order. Fortunately enough, the library has a delivery man responsible for delivering various books
+            successfully, to whomsover orders.
+        </p>
+
     </div>
 
     <h6 class="font-weight-bolder">Now read carefully;</h6>
     <ul>
         <li>
-            <b>The delivery person</b> is equivalent to the <b>internet</b>, because he/she <b>connects</b> two bodies
-            or <b>networks together</b> (e.g. the library with upto 1 million buyers together) and <b>deliver the books
-                successfully</b>.
+            The delivery man connects the library with billions of buyers (i.e. he serves as an interemediary).
+        </li>
+
+        <li>
+            <b>The internet</b> is similar to a <b>delivery man</b>.
+            The only difference being that the internet is an <b>intermediary network with much broader connectivity</b>
+            (i.e. can connect someone from Nigeria, to someone in UK, with another person in US, with another person in
+            Nigeria again (and so on and so forth) bonding them all together in its own network for sharing of data or
+            resources).
+        </li>
+
+        <li>
+            <b>The delivery person</b> is equivalent to the <b>internet</b>, because he/she <b>connects</b> two or more
+            bodies or <b>networks together</b> (e.g. the library with upto 1 million buyers together) and <b>delivers
+                the books successfully</b>.
         </li>
     </ul>
 
@@ -67,19 +103,45 @@
 
             <tbody>
                 <tr>
-                    <td>The web is a combination of different HTML documents with all its web resources linked together.
-                    </td>
-                    <td>The Internet is a network which connects other networks together to allow for transmission of
-                        data within themselves possible. This is what makes documents on the web visible globally.</td>
+                    <td>The web is a combination of websites linked together and shared over the internet.</td>
+                    <td>The Internet is an intermediary network of interconnected networks.</td>
                 </tr>
 
+                <tr>
+                    <td>The web is just an information system consisting of series of websites made up of HTML documents
+                        with all its resources (e.g. web assets, etc). Nothing more.
+                    </td>
+
+                    <td>The internet is what makes connection and sharing of contents on the web globally possible.</td>
+                </tr>
                 <tr>
                     <td>The web is similar to a library of different books.
                     </td>
                     <td>The Internet is similar to a delivery person.</td>
                 </tr>
+
+                <tr>
+                    <td>
+                        Example of a website includes;
+                        <br />
+                        (a) ProgrammersWorld, etc...
+                    </td>
+                    <td>
+                        Examples of information systems accessed on the internet include;
+                        <br />
+                        (a) the web (WWW or World Wide Web),
+                        <br />
+                        (b) Telephony,
+                        <br />
+                        (c) E-mail (Electronic mail),
+                        <br />
+                        (d) USENET,
+                        <br />
+                        (e) Messaging apps (Instagram, Twitter, Snapchat), etc...
+                    </td>
+                </tr>
             </tbody>
 
         </table>
     </div>
-</pw-tutorials>
+</pw-tutorials-container>

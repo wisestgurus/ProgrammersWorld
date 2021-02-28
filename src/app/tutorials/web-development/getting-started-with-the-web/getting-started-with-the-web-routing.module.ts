@@ -1,33 +1,38 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { GettingStartedWithTheWebConfig }
-  from 'src/app/shared/shared';
+import { TutorialsRoutingConfig } from '../../../shared/shared';
 
-import { GettingStartedWithTheWebComponent } from
-  './getting-started-with-the-web.component';
 import { HistoryOfTheWebComponent } from './history-of-the-web/history-of-the-web.component';
+import { HowTheInternetWorksComponent } from './how-the-internet-works/how-the-internet-works.component';
+import { HowTheWebWorksComponent } from './how-the-web-works/how-the-web-works.component';
 import { IntroductionToTheWebComponent } from './introduction-to-the-web/introduction-to-the-web.component';
 
 const routes: Routes = [
   {
-    path: '', component: GettingStartedWithTheWebComponent, children: [
-      {
-        path: '',
-        redirectTo: GettingStartedWithTheWebConfig.routesPathConfig.introduction.path, pathMatch: 'full'
-      },
-
-      {
-        ...GettingStartedWithTheWebConfig.routesPathConfig.introduction,
-        component: IntroductionToTheWebComponent
-      },
-
-      {
-        ...GettingStartedWithTheWebConfig.routesPathConfig.history,
-        component: HistoryOfTheWebComponent
-      }
-    ]
+    path: '',
+    redirectTo: TutorialsRoutingConfig.gettingStartedWithTheWeb.routesPath.introduction.path
   },
+
+  {
+    ...TutorialsRoutingConfig.gettingStartedWithTheWeb.routesPath.introduction,
+    component: IntroductionToTheWebComponent
+  },
+
+  {
+    ...TutorialsRoutingConfig.gettingStartedWithTheWeb.routesPath.history,
+    component: HistoryOfTheWebComponent
+  },
+
+  {
+    ...TutorialsRoutingConfig.gettingStartedWithTheWeb.routesPath.howTheInternetWorks,
+    component: HowTheInternetWorksComponent
+  },
+
+  {
+    ...TutorialsRoutingConfig.gettingStartedWithTheWeb.routesPath.howTheWebWorks,
+    component: HowTheWebWorksComponent
+  }
 
 ];
 

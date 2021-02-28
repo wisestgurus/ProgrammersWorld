@@ -1,15 +1,15 @@
-import { GettingStartedWithTheWebConfig, HTMLConfig, navigationItemsInterface }
+import { TutorialsRoutingConfig, navigationItemsInterface }
     from '../shared/shared';
 
 export const profileNavigationItems: navigationItemsInterface = {
     heading: 'profile', items: [
-        { name: 'signup', path:'a' },
-        { name: 'login', path:'a' },
+        { name: 'signup', path: '/profile/signup' },
+        { name: 'login', path: '/profile/login' },
         {
             expansionHeader: 'my profile', expansionContents: [
                 {
                     links: [
-                       
+
                     ]
                 }
             ]
@@ -19,22 +19,7 @@ export const profileNavigationItems: navigationItemsInterface = {
 
 export const mainNavigationItems: navigationItemsInterface = {
     heading: 'main', items: [
-        {
-            expansionHeader: 'tutorials', expansionContents: [
-                {
-                    innerHeader: 'web development', links: [
-                        {
-                            ...GettingStartedWithTheWebConfig.buttonsConfig.main
-                        },
-
-                        {
-                            ...HTMLConfig.buttonsConfig.main
-                        }
-                    ]
-                }
-            ]
-        },
-
+        { ...TutorialsRoutingConfig.main.buttonConfig },
         {
             name: 'practice projects', path: 'p'
         },

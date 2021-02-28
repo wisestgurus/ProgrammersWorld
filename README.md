@@ -14,7 +14,7 @@ Run `npm start` for a dev server (shortcut for `ng serve --open`) and wait for t
 3. [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 4. [Angular](https://angular.io) **or** [Express](https://expressjs.com)
 
-### If you have this skills, it is a plus
+### If you have these skills, it is a plus
 1. [AngularMaterial](https://material.angular.io)
 2. [Bootstrap](https://getbootstrap.com)
 3. [FontAwesome](https://fontawesome.com)

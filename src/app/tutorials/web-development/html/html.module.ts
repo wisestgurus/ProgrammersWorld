@@ -2,18 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HTMLRoutingModule } from './html-routing.module';
-import { HTMLComponent } from './html.component';
 import { IntroductionToHTMLComponent } from './introduction-to-html/introduction-to-html.component';
-import { TutorialsModule } from '../../tutorials.module';
+import { TutorialsRootModule } from '../../tutorials-root/tutorials-root.module';
 import { BasicSyntaxExplainedComponent } from './basic-syntax-explained/basic-syntax-explained.component';
 
 
 @NgModule({
-  declarations: [HTMLComponent, IntroductionToHTMLComponent, BasicSyntaxExplainedComponent],
+  declarations: [IntroductionToHTMLComponent, BasicSyntaxExplainedComponent],
   imports: [
     CommonModule,
     HTMLRoutingModule,
-    TutorialsModule
+    TutorialsRootModule
   ]
 })
 export class HTMLModule { }

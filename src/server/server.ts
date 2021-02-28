@@ -1,11 +1,14 @@
 import 'zone.js/dist/zone-node';
 
-import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
+import { ngExpressEngine } from '@nguniversal/express-engine';
 import { join } from 'path';
-import { PWRootServerModule } from '../main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
+
+import { PWRootServerModule } from '../main.server';
+
+import { homepageRouter } from './homepage/homepage.router';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -22,8 +25,8 @@ export function app(): express.Express {
   server.set('views', distFolder);
 
   // Example Express Rest API endpoints
-  // server.use('/api/homepage');
-  // server.use('/api/tutorials');
+  server.use('/api/homepage', homepageRouter);
+  server.use('/api/tutorials');
 
   // Serve static files from /browser
   server.get('*.*', express.static(distFolder, {
